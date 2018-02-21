@@ -1,0 +1,34 @@
+<ion-content class="login-content background" padding>
+    <div class="login-box">
+      <form (ngSubmit)="edit()" #registerForm="ngForm">
+        <ion-row>
+          <ion-col>
+                <ion-img width="100" height="100" src="../assets/imgs/user.png"></ion-img>
+            <ion-list inset>
+               <ion-label>Nombre de usuario:</ion-label>
+              <ion-item>
+                 
+                <ion-input type="text" placeholder="Nombre" name="usuario" required></ion-input>
+              </ion-item>
+              <ion-label>Nueva contraseña:</ion-label>
+              <ion-item>
+                <ion-input type="password" placeholder="Contraseña" name="password"  required></ion-input>
+              </ion-item>
+              <ion-label>Confirmar nueva contraseña:</ion-label>
+              <ion-item>
+                <ion-input type="password" placeholder="Confirmar contraseña" name="password2"  required></ion-input>
+              </ion-item>
+              
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col class="signup-col">
+            <button ion-button class="submit-btn"   (click)="modificarCuenta()">Modificar Cuenta</button>
+          </ion-col>
+        </ion-row>
+        
+      </form>
+    </div>
+  </ion-content>
