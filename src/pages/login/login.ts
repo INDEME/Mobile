@@ -20,7 +20,7 @@ export class LoginPage {
 
   resultado: any;
 
-  constructor(public navCtrl: NavController, public http:Http, private toastCtrl:ToastController, public auth: AuthSevice) {
+  constructor(public navCtrl: NavController, private toastCtrl:ToastController, public auth: AuthSevice, public http:Http) {
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
   }
  
@@ -57,6 +57,7 @@ export class LoginPage {
       }
     });
   }
+  
 
   presentToast(message) {
     let toast = this.toastCtrl.create({
