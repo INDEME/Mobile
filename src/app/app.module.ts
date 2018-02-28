@@ -15,10 +15,11 @@ import { EditPage } from '../pages/edit/edit';
 import { LibraryPage } from '../pages/library/library';
 import { SignupPage } from '../pages/signup/signup';
 import { PrincipalPage } from '../pages/principal/principal';
+import {HttpModule} from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { AuthSevice } from '../services/auth/auth';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'top',
         platforms: {
@@ -64,6 +66,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CalculatorPage,
     CreatePage,
     EditPage,
+    
     PrincipalPage,
     SignupPage,
     LibraryPage,
@@ -71,6 +74,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   providers: [
     StatusBar,
+    AuthSevice,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

@@ -29,6 +29,7 @@ export class CalculatorPage {
   PARTE2: number;
   DIVIDIENDO: number;
   TOTAL: number;
+  totalResultado: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
     
@@ -56,7 +57,7 @@ export class CalculatorPage {
     this.TOTAL = Math.round(this.DIVISOR / this.DIVIDIENDO);
     /////////////////////////////////////
     this.presentToast(this.TOTAL);
-    this.RESULTADO = String(this.TOTAL);
+    this.totalResultado = String(this.TOTAL);
   }
 
 
