@@ -48,21 +48,24 @@ export class SignupPage {
         }).map((response:Response)=>{
           return response.json();
         }).subscribe(
-          ()=> {console.log("Success");},
+          ()=> {console.log("Success");
+          this.presentToast('Usuario registrado correctamente.');
+        },
           (error)=>{
-            console.log('erro');
+            console.log('error');
+            this.presentToast('Error al registrarse porfavor intentelo mas tarde.');
           }
         )
   }
     else{
-    this.presentToast();
+    this.presentToast('Rellena todos los campos de manera correcta.');
   }
 }
 
 
-  presentToast() {
+  presentToast(message) {
     let toast = this.toastCtrl.create({
-      message: 'Rellena todos los campos de manera correcta.' ,
+      message: message + "" ,
       duration: 3000,
       position: 'middle'
     });
