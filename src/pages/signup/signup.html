@@ -8,6 +8,10 @@
   <div class="login-box">
     
     <form (ngSubmit)="register()" #registerForm="ngForm">
+        <ion-card class="card card-md">
+            <ion-card-header>    
+                Registrate!
+            </ion-card-header>
       <ion-row>
         <ion-col>
           <ion-list inset>
@@ -31,13 +35,11 @@
       
       <ion-row>
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit" >Registrarse</button>
+          <button ion-button class="submit-btn"  type="submit" (click)="register()">ACEPTAR</button>
         </ion-col>
       </ion-row>
+      </ion-card>
     </form>
-    <ion-label>¿Ya tienes cuenta?</ion-label>
-          <button ion-button class="register-btn" block clear (click)="loginCuenta()">Inicia Sesion</button>
-  </div>
 
-  <button ion-button class="get-btn" block clear (click)="obtenerCuenta()">Obtener</button>
+  </div>
 </ion-content>

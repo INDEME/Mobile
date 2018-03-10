@@ -35,9 +35,6 @@ export class SignupPage {
     this.navCtrl.parent.select(0);
   }
 
-  loginCuenta(){
-    this.navCtrl.push(LoginPage);
-  }
 
   register(){
     if(this.email != null && this.nombre != null && this.contrasena != null && this.contrasena2 != null){
