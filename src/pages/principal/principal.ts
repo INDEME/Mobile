@@ -11,10 +11,11 @@ import { AuthSevice } from '../../services/auth/auth';
   templateUrl: 'principal.html',
 })
 export class PrincipalPage {
+
   usuario: number;
   resultado: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http,  public auth: AuthSevice) {
+   constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthSevice, public http:Http) {
   }
 
   ionViewDidLoad() {
@@ -44,7 +45,6 @@ export class PrincipalPage {
     )
     this.getPollsId();
     this.navCtrl.push(CreatePage);
-}
- 
 
+}
 }
