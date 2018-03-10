@@ -15,7 +15,8 @@ import { EditPage } from '../pages/edit/edit';
 import { LibraryPage } from '../pages/library/library';
 import { SignupPage } from '../pages/signup/signup';
 import { PrincipalPage } from '../pages/principal/principal';
-import {HttpModule} from '@angular/http';
+import { CreateAskPage } from '../pages/create-ask/create-ask';
+import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -34,7 +35,8 @@ import { AuthSevice } from '../services/auth/auth';
     EditPage,
     SignupPage,
     LibraryPage,
-    TabsPage
+    TabsPage,
+    CreateAskPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,7 @@ import { AuthSevice } from '../services/auth/auth';
     CalculatorPage,
     CreatePage,
     EditPage,
-    
+    CreateAskPage,
     PrincipalPage,
     SignupPage,
     LibraryPage,

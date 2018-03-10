@@ -22,7 +22,7 @@ export class PrincipalPage {
 
   create(){
     this.navCtrl.push(CreatePage);
-    console.log(this.IdentificadorUsuario);
+    /*console.log(this.IdentificadorUsuario);
     this.http.post('https://apex.oracle.com/pls/apex/indeme/INpolls/', {
       'id': this.IdentificadorUsuario
     }).map((response:Response)=>{
@@ -34,7 +34,7 @@ export class PrincipalPage {
       (error)=>{
         console.log('error');
       }
-    )
+    )*/
   }
  
 

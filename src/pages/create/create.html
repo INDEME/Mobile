@@ -1,110 +1,11 @@
 <ion-content padding>
-  Crear encuesta ulises
-  <ion-list>
-
-      <ion-item-group>
-        <ion-item-divider color="light">PREGUNTAS ESTANDAR</ion-item-divider>
-        <ion-item>Respuesta única</ion-item>
-        <ion-item>
-          <ion-label color="primary" floating>Ingrese su pregunta</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-        <ion-list radio-group>
-          <ion-item>
-            <ion-label>Si</ion-label>
-            <ion-radio checked="true" value="Si"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>No</ion-label>
-            <ion-radio value="Np"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>No c</ion-label>
-            <ion-radio value="No c"></ion-radio>
-          </ion-item>
-        </ion-list>
-
-        <ion-item>Respuesta multiple</ion-item>
-        <ion-item>
-          <ion-label color="primary" floating>Ingrese su pregunta</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-        <ul class="list">
-          <li class="item item-checkbox checkbox-light">
-            PHP
-            <label class="checkbox">
-              <input type="checkbox">
-            </label>
-          </li>
-
-          <li class="item item-checkbox checkbox-stable">
-            RUBY
-            <label class="checkbox">
-              <input type="checkbox">
-            </label>
-          </li>
-
-          <li class="item item-checkbox checkbox-positive">
-            JAVA
-            <label class="checkbox">
-              <input type="checkbox">
-            </label>
-          </li>
-          <li class="item item-checkbox checkbox-calm">
-            BLA BLA
-            <label class="checkbox">
-              <input type="checkbox">
-            </label>
-          </li>
-        </ul>
-
-        <ion-item>Evaluación</ion-item>
-        <ion-item>Emoción</ion-item>
-
-
-        <ion-item>Escala</ion-item>
-        <ion-item>
-          <ion-label color="primary" floating>Ingrese su pregunta</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-        <ion-row radio-group>
-          <ion-col>
-            <ion-item>
-              <ion-label>1</ion-label>
-              <ion-radio value="1"></ion-radio>
-            </ion-item>
-          </ion-col>
-          <ion-col>
-            <ion-item>
-              <ion-label>2</ion-label>
-              <ion-radio value="2"></ion-radio>
-            </ion-item>
-          </ion-col>
-          <ion-col>
-            <ion-item>
-              <ion-label>3</ion-label>
-              <ion-radio value="3"></ion-radio>
-            </ion-item>
-          </ion-col>
-          <ion-col>
-            <ion-item>
-              <ion-label>4</ion-label>
-              <ion-radio value="4"></ion-radio>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-
-
-        <ion-item>Abiertas</ion-item>
-        <ion-item>
-          <ion-label color="primary" floating>Ingrese su pregunta</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-textarea placeholder="Enter a description"></ion-textarea>
-        </ion-item>
-        <ion-item>2 Dimensiones</ion-item>
-      </ion-item-group>
-
+  <p class="subtitle">Elige tipo de pregunta</p>
+  <ion-list no-line>
+    
+    <button ion-item *ngFor="let item of tipoPregunta" (click)="openNavDetailsPage(item)" icon-start>
+      <!--<ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon>-->
+      <ion-icon name="add-circle" [ngStyle]="{'color': item.color}" item-end></ion-icon>
+      {{ item.title }}
+    </button>
   </ion-list>
 </ion-content>
