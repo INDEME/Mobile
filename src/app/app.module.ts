@@ -17,6 +17,9 @@ import { SignupPage } from '../pages/signup/signup';
 import { PrincipalPage } from '../pages/principal/principal';
 import { CreateAskPage } from '../pages/create-ask/create-ask';
 import { HttpModule } from '@angular/http';
+import { DoPoollPage } from '../pages/do-pooll/do-pooll';
+import { GraphicPage } from '../pages/graphic/graphic';
+import { SeePollPage } from '../pages/see-poll/see-poll';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,6 +34,9 @@ import { AuthSevice } from '../services/auth/auth';
     LoginPage,
     CalculatorPage,
     CreatePage,
+    DoPoollPage,
+    GraphicPage,
+    SeePollPage,
     PrincipalPage,
     EditPage,
     SignupPage,
@@ -65,6 +71,9 @@ import { AuthSevice } from '../services/auth/auth';
     ContactPage,
     HomePage,
     LoginPage,
+    DoPoollPage,
+    GraphicPage,
+    SeePollPage,
     CalculatorPage,
     CreatePage,
     EditPage,
