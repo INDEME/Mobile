@@ -20,6 +20,7 @@ import { HttpModule } from '@angular/http';
 import { DoPoollPage } from '../pages/do-pooll/do-pooll';
 import { GraphicPage } from '../pages/graphic/graphic';
 import { SeePollPage } from '../pages/see-poll/see-poll';
+import { ResultpollsPage } from '../pages/resultpolls/resultpolls';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -36,6 +37,7 @@ import { AuthSevice } from '../services/auth/auth';
     CreatePage,
     DoPoollPage,
     GraphicPage,
+    ResultpollsPage,
     SeePollPage,
     PrincipalPage,
     EditPage,
@@ -75,6 +77,7 @@ import { AuthSevice } from '../services/auth/auth';
     GraphicPage,
     SeePollPage,
     CalculatorPage,
+    ResultpollsPage,
     CreatePage,
     EditPage,
     CreateAskPage,

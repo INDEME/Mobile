@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CreatePage } from '../create/create';
+import { ResultpollsPage } from '../resultpolls/resultpolls';
+import { DoPoollPage } from '../do-pooll/do-pooll';
 import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
 import { AuthSevice } from '../../services/auth/auth';
@@ -95,7 +97,7 @@ export class PrincipalPage {
             }
             else if (data == "1"){
               console.log("Aplicar encuesta");
-              //this.navCtrl.push(DoPoollPage);
+              this.navCtrl.push(DoPoollPage);
             }
             else if (data == "2"){
               console.log("Graficar encuesta");
@@ -103,7 +105,7 @@ export class PrincipalPage {
             }
             else if (data == "3"){
               console.log("Ver encuesta");
-              //this.navCtrl.push(SeePage);
+              this.navCtrl.push(ResultpollsPage);
             }
             }
         }
