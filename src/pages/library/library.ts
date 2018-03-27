@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ConsultaProvider} from '../../providers/consulta/consulta';
 
 /**
  * Generated class for the LibraryPage page.
@@ -15,10 +16,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LibraryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public list: any = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public consulta: ConsultaProvider) {
+    this.loadList();
   }
 
-  ionViewDidLoad() {
+  loadList() {
+    return new Promise(resolve => {
+      this.consulta.getListPreguntas().then(results => {
+        this.list = results;
+        //console.log(this.list);
+        return resolve();
+
+      }).catch(err => {        
+        console.log(err);
+        return resolve();
+
+      });
+    })
+  }
+
+  doRefresh(refresher) {
+    this.loadList().then(() => refresher.complete());
+  }
+
+ ionViewDidLoad() {
     console.log('ionViewDidLoad LibraryPage');
   }
 

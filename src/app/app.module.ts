@@ -21,6 +21,7 @@ import { DoPoollPage } from '../pages/do-pooll/do-pooll';
 import { GraphicPage } from '../pages/graphic/graphic';
 import { SeePollPage } from '../pages/see-poll/see-poll';
 import { ResultpollsPage } from '../pages/resultpolls/resultpolls';
+import { ConsultaProvider } from '../providers/consulta/consulta';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -90,7 +91,8 @@ import { AuthSevice } from '../services/auth/auth';
     StatusBar,
     AuthSevice,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ConsultaProvider
   ]
 })
 export class AppModule {}
