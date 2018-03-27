@@ -1,20 +1,15 @@
 <ion-content padding>
+<button item-right clear (click)="create()">
+    <ion-icon name="add-circle" style="zoom:4.0;" c></ion-icon>
+</button>
 
-    <ion-card class="card card-md">
-            <ion-card-header>    
-                Crear encuesta
-            </ion-card-header>
-            <button item-right clear (click)='create()'>
-                    <ion-icon name="add-circle" style="zoom:3.0;" ></ion-icon>
-                </button>
-                </ion-card>
-
-                <ion-card class="card card-md">
-                        <ion-card-header>    
-                                Encuesta XXs
-                            </ion-card-header>
-                            <button item-right clear (click)='option()'>
-                                    <ion-icon name="list-box" style="zoom:3.0;" ></ion-icon>
-                                </button>
-                            </ion-card>
+               
+                <ion-item>
+                        <ion-card padding *ngFor="let poll of pollsUser" (click)="menu(poll)">
+                            <div class="card-title">Encuesta</div>
+                            <div class="card-subtitle">
+                                <ion-icon name="ios-clipboard-outline"></ion-icon>
+                            </div>
+                        </ion-card>
+                </ion-item>
 </ion-content>
