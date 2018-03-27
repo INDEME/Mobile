@@ -9,11 +9,153 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label stacked>Ingrese su pregunta</ion-label> 
+
+      <ion-label stacked>Ingrese su pregunta</ion-label>
       <ion-input type="text" [(ngModel)]="pregunta"></ion-input>
     </ion-item>
-    <ion-item>
-      <button ion-button full (click)="OnSave()">Agregar pregunta</button>
-    </ion-item>
+
+
+    <button ion-button full (click)="OnSave()">Agregar pregunta</button>
+
+    <div *ngIf="item.id == 1 || item.id==2">
+      <ion-input type="text" placeholder="Respuesta" [(ngModel)]="answer" required></ion-input>
+      <button ion-button type="submit" (click)="addAskOption()">Agregar Respuesta</button>
+      <ion-item>
+        <ion-list padding *ngFor="let num of asks">
+          <ion-radio></ion-radio>
+          <ion-label>{{num}}</ion-label>
+        </ion-list>
+      </ion-item>
+    </div>
+
+    <div class="container" *ngIf="item.id == 5">
+      <ion-img class="imageEmocion" width="500" height="100" src="../../assets/imgs/rating0.png"></ion-img>
+    </div>
+
+    <div class="container" *ngIf="item.id == 6">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-img class="image" width="150" height="150" src="../../assets/imgs/happy.png"></ion-img>
+          </ion-col>
+          <ion-col>
+            <ion-img class="image" width="150" height="150" src="../../assets/imgs/sad.png"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="container" *ngIf="item.id == 21">
+      <ion-list radio-group [(ngModel)]="ask2">
+
+        <ion-grid>
+          <ion-row>
+
+            <ion-col class="columns">
+              <ion-label>1</ion-label>
+              <ion-radio value="1"></ion-radio>
+            </ion-col>
+            <ion-col class="columns">
+              <ion-label>2</ion-label>
+              <ion-radio value="2"></ion-radio>
+            </ion-col>
+            <ion-col class="columns">
+              <ion-label>3</ion-label>
+              <ion-radio value="3"></ion-radio>
+            </ion-col>
+            <ion-col class="columns">
+              <ion-label>4</ion-label>
+              <ion-radio value="4"></ion-radio>
+            </ion-col>
+            <ion-col class="columns">
+              <ion-label>5</ion-label>
+              <ion-radio value="5"></ion-radio>
+            </ion-col>
+            <ion-col class="columns">
+              <ion-label>6</ion-label>
+              <ion-radio value="6"></ion-radio>
+            </ion-col>
+            <ion-col class="columns">
+              <ion-label>7</ion-label>
+              <ion-radio value="7"></ion-radio>
+            </ion-col>
+            <ion-col class="columns">
+              <ion-label>8</ion-label>
+              <ion-radio value="8"></ion-radio>
+            </ion-col>
+            <ion-col class="columns">
+              <ion-label>9</ion-label>
+              <ion-radio value="9"></ion-radio>
+            </ion-col>
+            <ion-col class="columns">
+              <ion-label>10</ion-label>
+              <ion-radio value="10"></ion-radio>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </div>
+
+    <div class="container" *ngIf="item.id == 4">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="columns">
+            <ion-card class="cardScale">
+              <p>0</p>
+            </ion-card>
+          </ion-col>
+          <ion-col class="columns">
+            <ion-card class="cardScale">
+              <p>2</p>
+            </ion-card>
+          </ion-col>
+          <ion-col class="columns">
+            <ion-card class="cardScale">
+              <p>3</p>
+            </ion-card>
+          </ion-col>
+          <ion-col class="columns">
+            <ion-card class="cardScale">
+              <p>4</p>
+            </ion-card>
+          </ion-col>
+          <ion-col class="columns">
+            <ion-card class="cardScale">
+              <p>5</p>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="container" *ngIf="item.id == 22">
+      <ion-list radio-group [(ngModel)]="Dimensions">
+        <ion-grid>
+          <ion-row>
+            <ion-col class="columns">
+                <ion-label>Si</ion-label>
+                <ion-radio value="si"></ion-radio>
+            </ion-col>
+            <ion-col class="columns">
+                <ion-label>No</ion-label>
+                <ion-radio value="no"></ion-radio>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list> 
+    </div>
+
+    <div class="container" *ngIf="item.id == 23">
+      <ion-range margin min="0" max="10" [(ngModel)]="saturation" color="secondary">
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>10</ion-label>
+      </ion-range>
+    </div>
+
+    <div *ngIf="item.id == 1 || item.id==2">
+      <button ion-button type="submit" (click)="SaveAnswer()">Guardar respuestas</button>
+    </div>
+
   </ion-list>
 </ion-content>

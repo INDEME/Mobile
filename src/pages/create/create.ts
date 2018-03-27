@@ -23,9 +23,10 @@ export class CreatePage {
   tipoPregunta = [];
   IdentificadorUsuario: any;
   id_encuesta: any;
+  preguntas: any
   constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthSevice, public http:Http) {
     this.IdentificadorUsuario = this.auth.idUsuario;
-
+    this.preguntas = [];
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpolls/').map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       
@@ -34,7 +35,7 @@ export class CreatePage {
         this.id_encuesta = this.resultado[0].id_encuesta;
       }
       else{
-        console.log("Usuario y/o contraseña incorrectos."); 
+        console.log("Error :("); 
       }
     });
 
@@ -120,6 +121,11 @@ export class CreatePage {
 
   openNavDetailsPage(item) {
     this.navCtrl.push(CreateAskPage, { item: item });
+  }
+
+  GetAsk(){
+    this.http.get("https://apex.oracle.com/pls/apex/indeme/INpolls/")
+    .map(response => this.preguntas = response.json().items);
   }
 
   OnSave(){

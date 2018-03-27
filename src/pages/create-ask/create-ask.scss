@@ -1,3 +1,40 @@
 page-create-ask {
+    .container{
+        
+        margin-top: 40px !important;
+    }
+    .image{
+
+        display: block !important;
+        margin: auto !important;
+    }
+    .imageEmocion{
+        width: 150px !important;
+        height: 150px !important;
+        display: block !important;
+        margin: auto !important;
+        background-color: #fff;
+    }
+    .icon{
+        color:black;
+        width: 150px !important;
+        height: 150px !important;
+        margin: auto;
+        display: block;
+    }
+    .columns{
+        text-align: center !important;
+        display: block !important;
+    }
+    .cardScale{
+        width: 40px;
+        height: 40px;
+        font-size: 50px !important;
+    }
+    p{
+        text-align: center;
+        display:block;
+        margin-top: 11px !important;
+    }
 
 }
