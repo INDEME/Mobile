@@ -10,6 +10,7 @@ import 'rxjs/Rx';
 import { AuthSevice } from '../../services/auth/auth';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { CreateAskPage } from '../create-ask/create-ask';
 
 @IonicPage()
 @Component({
@@ -33,7 +34,9 @@ export class PrincipalPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrincipalPage');
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/').map(res => res.json()).subscribe(data => {
+    this.usuario = this.auth.idUsuario;
+    console.log(this.usuario + "hola");
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.auth.idUsuario).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
       // console.log(this.auth.idUsuario);
@@ -95,7 +98,7 @@ export class PrincipalPage {
             console.log(data);
             if (data == "0"){
               console.log("Visualizar encuesta");
-              this.navCtrl.push(SeePollPage);
+              this.navCtrl.push(SeePollPage, {encuesta_id});
             }
             else if (data == "1"){
               console.log("Aplicar encuesta");
@@ -133,6 +136,7 @@ export class PrincipalPage {
         console.log('error'+ error);
       }
     )
+    this.navCtrl.push(CreatePage);
 }
 
 add(){
