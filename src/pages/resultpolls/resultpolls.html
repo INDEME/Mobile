@@ -1,18 +1,19 @@
-<!--
-  Generated template for the ResultpollsPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>resultpolls</ion-title>
+    <ion-title>Resultados</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-item>
+        <ion-card padding *ngFor="let poll of resultado2">
+          <div *ngIf="poll.id_encuesta == encuestaId">
+          <div class="card-title">{{poll.pregunta}}</div>
+          <div class="card-subtitle">{{poll.respuesta}}</div>
+          <div class="card-subtitle">Número de respuestas: </div></div>
+        </ion-card>
+      </ion-item>
 </ion-content>

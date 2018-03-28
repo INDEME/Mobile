@@ -15,7 +15,9 @@ export class DoPoollPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
+    console.log("***************************");
     console.log(this.encuestaId);
+    console.log("***************************");
   }
 
   ionViewDidLoad() {
