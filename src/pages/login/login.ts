@@ -42,7 +42,7 @@ export class LoginPage {
   login(){
     //console.log(this.nombre);
     //console.log(this.contrasena);
-    this.http.get('http://45.55.41.252:8080/ords/indeme/INgetuser/' + this.nombre +"/"+ this.contrasena).map(res => res.json()).subscribe(data => {
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INgetuser/' + this.nombre +"/"+ this.contrasena).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       //console.log(this.resultado);
       if(data.items.length >= 1){

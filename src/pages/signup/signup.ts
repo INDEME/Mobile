@@ -38,7 +38,7 @@ export class SignupPage {
 
   register(){
     if(this.email != null && this.nombre != null && this.contrasena != null && this.contrasena2 != null){
-        this.http.post('http://45.55.41.252:8080/ords/indeme/INcreate/', {
+        this.http.post('https://apex.oracle.com/pls/apex/indeme/INcreate/', {
           'correo': this.email,
           'nombres': this.nombre,
           'contrasena': this.contrasena

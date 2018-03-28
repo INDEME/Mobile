@@ -34,7 +34,7 @@ export class EditPage {
 
   edit(){
     if(this.contrasena != null && this.contrasena2 != null && this.contrasena == this.contrasena2){
-      this.http.post('http://45.55.41.252:8080/ords/indeme/INmodify/', {
+      this.http.post('https://apex.oracle.com/pls/apex/indeme/INmodify/', {
         'contrasena': this.contrasena,
         'id_usuarios': this.IdentificadorUsuario
       }).map((response:Response)=>{
