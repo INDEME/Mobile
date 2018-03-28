@@ -36,7 +36,7 @@ export class PrincipalPage {
     console.log('ionViewDidLoad PrincipalPage');
     this.usuario = this.auth.idUsuario;
     console.log(this.usuario + "hola");
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.auth.idUsuario).map(res => res.json()).subscribe(data => {
+    this.http.get('http://45.55.41.252:8080/ords/indeme/INpollsGet/'+ this.auth.idUsuario).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
       // console.log(this.auth.idUsuario);
@@ -123,7 +123,7 @@ export class PrincipalPage {
   create(){
     this.usuario = this.auth.idUsuario;
     console.log(this.usuario);
-    this.http.post('https://apex.oracle.com/pls/apex/indeme/INpolls/', {
+    this.http.post('http://45.55.41.252:8080/ords/apex/indeme/INpolls/', {
       'id': this.usuario
     }).map((response:Response)=>{
       return response.json();

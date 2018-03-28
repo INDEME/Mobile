@@ -46,7 +46,7 @@ export class CreateAskPage {
   }
 
   OnSave(){
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpolls/' + this.IdentificadorUsuario +"/").map(res => res.json()).subscribe(data => {
+    this.http.get('http://45.55.41.252:8080/ords/indeme/INpolls/' + this.IdentificadorUsuario +"/").map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       
       if(data.items.length >= 1){
@@ -60,7 +60,7 @@ export class CreateAskPage {
 
     });
 
-    this.http.post('https://apex.oracle.com/pls/apex/indeme/INask/', {
+    this.http.post('http://45.55.41.252:8080/ords/indeme/INask/', {
       'id_encuesta': this.id_encuesta,
       'id_tipo': this.id_tipo,
       'pregunta': this.pregunta
@@ -85,7 +85,7 @@ export class CreateAskPage {
     
   }
   SaveAnswer(){
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INask/' + this.IdentificadorUsuario +"/"+this.id_tipo +"/").map(res => res.json()).subscribe(data => {
+    this.http.get('http://45.55.41.252:8080/ords/indeme/INask/' + this.IdentificadorUsuario +"/"+this.id_tipo +"/").map(res => res.json()).subscribe(data => {
       this.resultAsk = data.items;
       
       if(data.items.length >= 1){

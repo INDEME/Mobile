@@ -29,7 +29,7 @@ export class ResultpollsPage {
     console.log(this.encuestaId);
     console.log("000000000000000");
     console.log("D");
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskResult/').map(res => res.json()).subscribe(data => {
+    this.http.get('http://45.55.41.252:8080/ords/indeme/INaskResult/').map(res => res.json()).subscribe(data => {
       this.resultado2 = data.items;
       console.log(this.resultado2);
     });

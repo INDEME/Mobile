@@ -15,7 +15,7 @@ export class ConsultaProvider {
 
   public getListPreguntas() {
     return new Promise((resolve, reject) => {
-      this.http.get('https://apex.oracle.com/pls/apex/indeme/INlibrary/').map(res => res.json())
+      this.http.get('http://45.55.41.252:8080/ords/indeme/INlibrary/').map(res => res.json())
         .subscribe(data => {
           resolve(data.items);
         });
