@@ -18,6 +18,7 @@ export class SignupPage {
   nombre: string;
 
   resultado: any;
+  resultadoUser: any;
 
   constructor(public navCtrl: NavController , private toastCtrl:ToastController, public http:Http,  
     public formBuilder: FormBuilder) {
@@ -44,21 +45,28 @@ export class SignupPage {
           'contrasena': this.contrasena
         }).map((response:Response)=>{
           return response.json();
-        }).subscribe(
-          ()=> {console.log("Success");
-          this.presentToast('Usuario registrado correctamente.');
-        },
-          (error)=>{
-            console.log('error');
-            this.presentToast('Error al registrarse porfavor intentelo mas tarde.');
-          }
-        )
+        })
   }
     else{
     this.presentToast('Rellena todos los campos de manera correcta.');
   }
+
 }
 
+  comprobacion(){
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INgetuser/' + this.nombre +"/"+ this.contrasena).map(res => res.json()).subscribe(data => {
+      this.resultadoUser = data.items;
+      console.log(this.resultadoUser);
+      if(data.items.length >= 1){
+        console.log(this.resultadoUser);
+      
+        this.navCtrl.push(LoginPage);
+       }
+      else{
+        this.presentToast("Usuario no registrado. Intentelo mas tarde."); 
+      }
+    });
+  }
 
   presentToast(message) {
     let toast = this.toastCtrl.create({

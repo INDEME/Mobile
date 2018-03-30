@@ -27,18 +27,19 @@ export class CreatePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthSevice, public http:Http) {
     this.IdentificadorUsuario = this.auth.idUsuario;
     this.preguntas = [];
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpolls/').map(res => res.json()).subscribe(data => {
-      this.resultado = data.items;
-      
-      if(data.items.length >= 1){
-       console.log(this.resultado[0].id_encuesta);
-        this.id_encuesta = this.resultado[0].id_encuesta;
-      }
-      else{
-        console.log("Error :("); 
-      }
-    });
+    // this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/' + this.IdentificadorUsuario ).map(res => res.json()).subscribe(data => {
+    //   this.resultado = data.items;
+    //   console.log(this.resultado);
+    //   if(data.items.length >= 1){
+    //     console.log("Holaaaaaaa: "+ this.resultado[data.items.length-1].id_encuesta);
+    //     this.id_encuesta = this.resultado[data.items.length-1].id_encuesta;
+    //     console.log ("Hola soy la encuesta: " + this.id_encuesta);
+    //   }
 
+    //   else{
+    //     console.log("id encuesta no encontrado"); 
+    //   }});
+    
     this.tipoPregunta = [
       {
         'id': '1',
@@ -116,31 +117,31 @@ export class CreatePage {
  
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreatePage');
-    
   }
 
   openNavDetailsPage(item) {
     this.navCtrl.push(CreateAskPage, { item: item });
   }
 
-  GetAsk(){
-    this.http.get("https://apex.oracle.com/pls/apex/indeme/INpolls/")
-    .map(response => this.preguntas = response.json().items);
-  }
+  // GetAsk(){
+  //   this.http.get("https://apex.oracle.com/pls/apex/indeme/INpolls/")
+  //   .map(response => this.preguntas = response.json().items);
+  // }
 
-  OnSave(){
-    this.http.post('https://apex.oracle.com/pls/apex/indeme/INpolls/', {
-      'id_encuesta': this.id_encuesta,
-      'id_tipo': this.tipoPregunta,
+  // OnSave(){
+  //   console.log(this.id_encuesta + "La encuesta es:");
+  //   this.http.post('https://apex.oracle.com/pls/apex/indeme/INpolls/', {
+  //     'id_encuesta': this.id_encuesta,
+  //     'id_tipo': this.tipoPregunta,
       
-    }).map((response:Response)=>{
-      return response.json();
-    }).subscribe(
-      ()=> {console.log("Success");
-    },
-      (error)=>{
-        console.log('error');
-      }
-    )
-  }
+  //   }).map((response:Response)=>{
+  //     return response.json();
+  //   }).subscribe(
+  //     ()=> {console.log("Success");
+  //   },
+  //     (error)=>{
+  //       console.log('error');
+  //     }
+  //   )
+  // }
 }
