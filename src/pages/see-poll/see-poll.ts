@@ -28,7 +28,7 @@ export class SeePollPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SeePollPage:)');
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpolls/').map(res => res.json()).subscribe(data => {
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsSearch/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
     });

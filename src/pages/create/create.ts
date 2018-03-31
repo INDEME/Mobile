@@ -42,13 +42,6 @@ export class CreatePage {
     
     this.tipoPregunta = [
       {
-        'id': '1',
-        'title': 'Respuesta Única',
-        'icon': '',
-        'color': '#0CA9EA',
-        'id_encuesta': this.id_encuesta
-      },
-      {
         'id': '2',
         'title': 'Respuesta Múltiple',
         'icon': '',

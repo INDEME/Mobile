@@ -100,11 +100,7 @@ export class CreateAskPage {
       }
 
     });
-    console.log("HOAAAAAAAAAAAAa");
-    console.log(this.id_encuesta);
-    console.log(this.id_pregunta);
-    console.log(this.asks);
-    for(var i=0; i < this.asks.length-1; i++){
+    for(var i=0; i = this.asks.length; i++){
       this.http.post('https://apex.oracle.com/pls/apex/indeme/INanswer/', {
         'id_encuesta': this.id_encuesta,
         'id_pregunta': this.id_pregunta,
@@ -118,8 +114,11 @@ export class CreateAskPage {
           console.log('error');
         }
       )
-
     }
+    console.log("HOAAAAAAAAAAAAa");
+    console.log(this.id_encuesta);
+    console.log(this.id_pregunta);
+    console.log(this.asks);
 
   }
 }
