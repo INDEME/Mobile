@@ -39,4 +39,8 @@ export class DoPoollPage {
     console.log(this.resultado.length);
   }
 
+  Escala(number){
+    console.log(number);
+  }
+
 }
