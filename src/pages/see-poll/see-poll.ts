@@ -18,6 +18,7 @@ import 'rxjs/Rx';
 export class SeePollPage {
   encuestaId: any;
   resultado: any;
+  askItems: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
@@ -31,6 +32,11 @@ export class SeePollPage {
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsSearch/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
+    });
+
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskItems/' + this.encuestaId).map(res => res.json()).subscribe(data => {
+      this.askItems = data.items;
+      console.log(this.askItems);
     });
   }
 

@@ -13,23 +13,30 @@
               <div class="card-title">{{poll.pregunta}}</div>
 
               <div *ngIf="poll.id_tipo_pregunta==2">
-                  
+                  <ion-item>
+                      <ion-list padding *ngFor="let item of askItems">
+                        <div *ngIf="poll.id_pregunta == item.id_pregunta">
+                        <ion-item>
+                        <ion-radio></ion-radio>
+                        <ion-label>{{item.respuesta}}</ion-label>
+                       </ion-item></div>
+                      </ion-list>
+                    </ion-item>
                 </div>
 
-                <div *ngIf="poll.id_tipo_pregunta==1">
-                  <ion-list radio-group [(ngModel)] ="Unica">
-                    <ion-item>
-                      <ion-label>Si</ion-label>
-                      <ion-radio value="si"></ion-radio>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label>No</ion-label>
-                        <ion-radio value="no"></ion-radio>
-                      </ion-item></ion-list> 
-                  </div>
+               
             
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 5">
-                 
+                    <ion-item>
+                        <ion-label>Número de estrellas</ion-label>
+                        <ion-select [(ngModel)]="star">
+                          <ion-option value="1">1</ion-option>
+                          <ion-option value="2">2</ion-option>
+                          <ion-option value="3">3</ion-option>
+                          <ion-option value="4">4</ion-option>
+                          <ion-option value="5">5</ion-option>
+                        </ion-select>
+                      </ion-item>
                 </div>
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 7 || poll.id_tipo_pregunta == 3" >
@@ -120,7 +127,15 @@
                 </div>
             
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 22">
-                 
+                    <ion-list radio-group [(ngModel)] ="Dimensiones">
+                        <ion-item>
+                            <ion-label>Si</ion-label>
+                            <ion-radio value="si"></ion-radio>
+                          </ion-item>
+                          <ion-item>
+                              <ion-label>No</ion-label>
+                              <ion-radio value="no"></ion-radio>
+                          </ion-item></ion-list>
                 </div>
             
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 23">
