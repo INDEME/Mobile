@@ -1,5 +1,5 @@
 <ion-content padding>
-  
+  <ion-card>
         <ion-refresher (ionRefresh)="doRefresh($event)">
           <ion-refresher-content
             pullingIcon="arrow-dropdown"
@@ -14,5 +14,5 @@
             <h2>{{ item.pregunta }}</h2>
             <h3>{{ item.tipo }}</h3>
           </ion-item>
-        </ion-list>
+        </ion-list></ion-card>
       </ion-content>

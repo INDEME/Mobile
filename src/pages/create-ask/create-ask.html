@@ -1,12 +1,14 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>{{ item.title }}</ion-title>
-  </ion-navbar>
-
-</ion-header>
+  <ion-header>
+      <ion-navbar class="toolbar toolbar-md">
+        <ion-title class="toolbar-title toolbar-title-md">
+          {{ item.title }}
+        </ion-title>
+      </ion-navbar>
+    </ion-header>
 
 
 <ion-content padding>
+<ion-card>
   <ion-list>
     <ion-item>
 
@@ -142,5 +144,5 @@
       <button ion-button type="submit" (click)="SaveAnswer()">Guardar respuestas</button>
     </div>
 
-  </ion-list>
+  </ion-list></ion-card>
 </ion-content>
