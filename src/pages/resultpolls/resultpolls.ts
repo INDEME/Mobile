@@ -28,7 +28,7 @@ export class ResultpollsPage {
     console.log("000000000000000");
     console.log(this.encuestaId);
     console.log("000000000000000");
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskResult/').map(res => res.json()).subscribe(data => {
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskResult/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado2 = data.items;
     console.log("Results");
       console.log(this.resultado2);

@@ -11,22 +11,32 @@ import 'rxjs/Rx';
 })
 export class DoPoollPage {
   encuestaId: any;
-  resultado : any;
+  resultado: any;
+  askItems: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
-    console.log("***************************");
+    console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,:)");
     console.log(this.encuestaId);
-    console.log("***************************");
+    console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:)");
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DoPoollPage');
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpolls/').map(res => res.json()).subscribe(data => {
+    console.log('ionViewDidLoad SeePollPage:)');
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsSearch/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
-      
+     
     });
+
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskItems/' + this.encuestaId).map(res => res.json()).subscribe(data => {
+      this.askItems = data.items;
+      console.log(this.askItems);
+    });
+  }
+
+  doPoll(){
+    console.log(this.resultado.length);
   }
 
 }
