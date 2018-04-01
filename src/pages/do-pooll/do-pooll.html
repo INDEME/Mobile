@@ -37,24 +37,24 @@
                             <ion-option value="5">5</ion-option>
                         </ion-select>
                     </ion-item>
-                    <button ion-button (click)="saveStar()">Guardar</button>
+                    <button ion-button (click)="saveStar(poll.id_pregunta)">Guardar</button>
                 </div>
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 7 || poll.id_tipo_pregunta == 3">
                     <ion-input type="text" placeholder="Inserte aqui su respuesta" [(ngModel)]="inputAnswer"></ion-input>
-                     <button ion-button (click)="saveInput()">Guardar</button>
+                     <button ion-button (click)="saveInput(poll.id_pregunta)">Guardar</button>
                 </div>
 
 
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 6">
                     <ion-item>
-                        <button ion-button icon-only style="background: white" (click)="saveFace('sad')">
+                        <button ion-button icon-only style="background: white" (click)="saveFace('sad', poll.id_pregunta)">
                       <ion-icon name="sad" style="color: black"></ion-icon>
                   </button>
                     </ion-item>
                     <ion-item>
-                        <button ion-button icon-only style="background: white" (click)="saveFace('happy')">
+                        <button ion-button icon-only style="background: white" (click)="saveFace('happy', poll.id_pregunta)">
                       <ion-icon name="happy" style="color: black"></ion-icon>
                   </button>
                     </ion-item>
@@ -103,7 +103,7 @@
                             <ion-radio value="10"></ion-radio>
                         </ion-item>
                     </ion-list>
-                    <button ion-button (click)="saveEscala10()">Guardar</button>
+                    <button ion-button (click)="saveEscala10(poll.id_pregunta)">Guardar</button>
                 </div>
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 4">
@@ -129,7 +129,7 @@
                             <ion-radio value="5"></ion-radio>
                         </ion-item>
                     </ion-list>
-                    <button ion-button (click)="saveEscala5()">Guardar</button>
+                    <button ion-button (click)="saveEscala5(poll.id_pregunta)">Guardar</button>
                 </div>
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 22">
@@ -143,7 +143,7 @@
                             <ion-radio value="no"></ion-radio>
                         </ion-item>
                     </ion-list>
-                    <button ion-button (click)="saveDimension()">Guardar</button>
+                    <button ion-button (click)="saveDimension(poll.id_pregunta)">Guardar</button>
                 </div>
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 23">

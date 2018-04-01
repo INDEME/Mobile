@@ -47,22 +47,26 @@ export class DoPoollPage {
   doPoll(){
     console.log(this.resultado.length);
     console.log(this.addAnswer);
+    console.log("LA encuesta es: " +this.encuestaId);
   }
 
-  Escala(number){
+  Escala(number, idPregunta){
     console.log(number);
+    console.log(idPregunta);
   }
 
-  saveInput(){
+  saveInput(idPregunta){
     console.log(this.inputAnswer);
     this.addAnswer.push(this.inputAnswer);
+    console.log(idPregunta);
   }
 
-  items(item){
+  items(item, idPregunta){
     console.log(item);
+    console.log(idPregunta);
   }
 
-  saveFace(face){
+  saveFace(face, idPregunta){
     console.log(face);
     if (face == "happy"){
       this.presentToast("Carita feliz seleccionada.");
@@ -72,36 +76,43 @@ export class DoPoollPage {
       this.presentToast("Carita triste seleccionada.");
       this.addAnswer.push("sad");
     }
+    console.log(idPregunta);
   }
 
-  saveStar(){
+  saveStar(idPregunta){
     console.log(this.star);
     this.addAnswer.push(this.star);
+    console.log(idPregunta);
   }
 
-  saveRange(){
+  saveRange(idPregunta){
     console.log(this.saturation);
     this.addAnswer.push(this.saturation);
+    console.log(idPregunta);
   }
 
-  saveDimension(){
+  saveDimension(idPregunta){
     console.log(this.dimensiones);
     this.addAnswer.push(this.dimensiones);
+    console.log(idPregunta);
   }
 
-  saveEscala5(){
+  saveEscala5(idPregunta){
     console.log(this.escala5);
     this.addAnswer.push(this.escala5);
+    console.log(idPregunta);
   }
 
-  saveEscala10(){
+  saveEscala10(idPregunta){
     console.log(this.escala10);
     this.addAnswer.push(this.escala10);
+    console.log(idPregunta);
   }
 
-  saveMulti(item){
+  saveMulti(item, idPregunta){
     console.log(item);
     this.addAnswer.push(this.multiple);
+    console.log(idPregunta);
   }
 
   presentToast(message) {
