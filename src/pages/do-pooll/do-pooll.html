@@ -11,7 +11,6 @@
         <ion-list padding *ngFor="let poll of resultado">
             <div *ngIf="poll.id_encuesta == encuestaId">
                 <div class="card-title">{{poll.pregunta}}</div>
-
                 <div *ngIf="poll.id_tipo_pregunta==2">
                     <ion-item>
                         <ion-list padding *ngFor="let item of askItems">
@@ -38,29 +37,31 @@
                             <ion-option value="5">5</ion-option>
                         </ion-select>
                     </ion-item>
+                    <button ion-button (click)="saveStar()">Guardar</button>
                 </div>
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 7 || poll.id_tipo_pregunta == 3">
-                    <ion-input type="text" placeholder="Inserte aqui su respuesta"></ion-input>
+                    <ion-input type="text" placeholder="Inserte aqui su respuesta" [(ngModel)]="inputAnswer"></ion-input>
+                     <button ion-button (click)="saveInput()">Guardar</button>
                 </div>
 
 
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 6">
                     <ion-item>
-                        <button ion-button icon-only style="background: white">
+                        <button ion-button icon-only style="background: white" (click)="saveFace('sad')">
                       <ion-icon name="sad" style="color: black"></ion-icon>
                   </button>
                     </ion-item>
                     <ion-item>
-                        <button ion-button icon-only style="background: white">
+                        <button ion-button icon-only style="background: white" (click)="saveFace('happy')">
                       <ion-icon name="happy" style="color: black"></ion-icon>
                   </button>
                     </ion-item>
                 </div>
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 21">
-                    <ion-list radio-group [(ngModel)]="Escala">
+                    <ion-list radio-group [(ngModel)]="escala10">
                         <ion-item>
                             <ion-label>1</ion-label>
                             <ion-radio value="1"></ion-radio>
@@ -102,10 +103,11 @@
                             <ion-radio value="10"></ion-radio>
                         </ion-item>
                     </ion-list>
+                    <button ion-button (click)="saveEscala10()">Guardar</button>
                 </div>
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 4">
-                    <ion-list radio-group [(ngModel)]="Escala">
+                    <ion-list radio-group [(ngModel)]="escala5">
                         <ion-item>
                             <ion-label>1</ion-label>
                             <ion-radio value="1" ></ion-radio>
@@ -127,10 +129,11 @@
                             <ion-radio value="5"></ion-radio>
                         </ion-item>
                     </ion-list>
+                    <button ion-button (click)="saveEscala5()">Guardar</button>
                 </div>
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 22">
-                    <ion-list radio-group [(ngModel)]="Dimensiones">
+                    <ion-list radio-group [(ngModel)]="dimensiones">
                         <ion-item>
                             <ion-label>Si</ion-label>
                             <ion-radio value="si"></ion-radio>
@@ -140,6 +143,7 @@
                             <ion-radio value="no"></ion-radio>
                         </ion-item>
                     </ion-list>
+                    <button ion-button (click)="saveDimension()">Guardar</button>
                 </div>
 
                 <div class="container" *ngIf="poll.id_tipo_pregunta == 23">
@@ -147,11 +151,12 @@
                         <ion-label range-left>0</ion-label>
                         <ion-label range-right>10</ion-label>
                     </ion-range>
+                    <button ion-button (click)="saveRange()">Guardar</button>
                 </div>
 
             </div>
         </ion-list>
 
-        <button ion-button type="submit" (click)="doPoll()">Responder encuesta</button>
+        <button ion-button type="submit" (click)="doPoll()" full>Responder encuesta</button>
     </ion-card>
 </ion-content>

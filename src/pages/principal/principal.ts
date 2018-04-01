@@ -84,7 +84,7 @@ export class PrincipalPage {
           }
         },
         {
-          text: 'OK',
+          text: 'Aceptar',
           handler: (data:string) => {
             console.log(data);
             if (data == "0"){
