@@ -16,6 +16,7 @@ export class DoPoollPage {
   askItems: any;
   inputAnswer: any;
   addAnswer: any [] = [];
+  addIdPreguntas: any [] = [];
   star: number;
   saturation: any;
   dimensiones: any;
@@ -47,23 +48,28 @@ export class DoPoollPage {
   doPoll(){
     console.log(this.resultado.length);
     console.log(this.addAnswer);
+    console.log(this.addIdPreguntas);
     console.log("LA encuesta es: " +this.encuestaId);
   }
 
   Escala(number, idPregunta){
     console.log(number);
+    this.addAnswer.push(number);
     console.log(idPregunta);
+    this.addIdPreguntas.push(idPregunta);
   }
 
   saveInput(idPregunta){
     console.log(this.inputAnswer);
     this.addAnswer.push(this.inputAnswer);
     console.log(idPregunta);
+    this.addIdPreguntas.push(idPregunta);
   }
 
   items(item, idPregunta){
     console.log(item);
     console.log(idPregunta);
+    this.addIdPreguntas.push(idPregunta);
   }
 
   saveFace(face, idPregunta){
@@ -77,42 +83,49 @@ export class DoPoollPage {
       this.addAnswer.push("sad");
     }
     console.log(idPregunta);
+    this.addIdPreguntas.push(idPregunta);
   }
 
   saveStar(idPregunta){
     console.log(this.star);
     this.addAnswer.push(this.star);
     console.log(idPregunta);
+    this.addIdPreguntas.push(idPregunta);
   }
 
   saveRange(idPregunta){
     console.log(this.saturation);
     this.addAnswer.push(this.saturation);
     console.log(idPregunta);
+    this.addIdPreguntas.push(idPregunta);
   }
 
   saveDimension(idPregunta){
     console.log(this.dimensiones);
     this.addAnswer.push(this.dimensiones);
     console.log(idPregunta);
+    this.addIdPreguntas.push(idPregunta);
   }
 
   saveEscala5(idPregunta){
     console.log(this.escala5);
     this.addAnswer.push(this.escala5);
     console.log(idPregunta);
+    this.addIdPreguntas.push(idPregunta);
   }
 
   saveEscala10(idPregunta){
     console.log(this.escala10);
     this.addAnswer.push(this.escala10);
     console.log(idPregunta);
+    this.addIdPreguntas.push(idPregunta);
   }
 
   saveMulti(item, idPregunta){
     console.log(item);
     this.addAnswer.push(this.multiple);
     console.log(idPregunta);
+    this.addIdPreguntas.push(idPregunta);
   }
 
   presentToast(message) {
