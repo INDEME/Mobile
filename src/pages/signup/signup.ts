@@ -38,20 +38,17 @@ export class SignupPage {
 
   register(){
     if(this.email != null && this.nombre != null && this.contrasena != null && this.contrasena2 != null){
-        this.http.post('http://45.55.41.252:8080/ords/indeme/INcreate/', {
+        this.http.post('https://apex.oracle.com/pls/apex/indeme/INcreate/', {
           'correo': this.email,
           'nombres': this.nombre,
           'contrasena': this.contrasena
         }).map((response:Response)=>{
           return response.json();
         }).subscribe(
-          ()=> {console.log("Success");
-          this.presentToast('Usuario registrado correctamente.');
-        },
-          (error)=>{
-            console.log('error');
-            this.presentToast('Error al registrarse porfavor intentelo mas tarde.');
-          }
+          rs => console.log(rs),
+          er =>  this.presentToast('Usuario registrado correctamente.'),
+          () => console.log("Correctooooooo")
+          
         )
   }
     else{

@@ -27,7 +27,7 @@ export class CreatePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthSevice, public http:Http) {
     this.IdentificadorUsuario = this.auth.idUsuario;
     this.preguntas = [];
-    this.http.get('http://45.55.41.252:8080/ords/indeme/INpolls/').map(res => res.json()).subscribe(data => {
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpolls/').map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       
       if(data.items.length >= 1){
@@ -124,12 +124,12 @@ export class CreatePage {
   }
 
   GetAsk(){
-    this.http.get("http://45.55.41.252:8080/ords/indeme/INpolls/")
+    this.http.get("https://apex.oracle.com/pls/apex/indeme/INpolls/")
     .map(response => this.preguntas = response.json().items);
   }
 
   OnSave(){
-    this.http.post('http://45.55.41.252:8080/ords/indeme/INpolls/', {
+    this.http.post('https://apex.oracle.com/pls/apex/indeme/INpolls/', {
       'id_encuesta': this.id_encuesta,
       'id_tipo': this.tipoPregunta,
       
