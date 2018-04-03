@@ -12,17 +12,20 @@
             <div *ngIf="poll.id_encuesta == encuestaId">
                 <div class="card-title">{{poll.pregunta}}</div>
                 <div *ngIf="poll.id_tipo_pregunta==2">
-                    <ion-item>
-                        <ion-list padding *ngFor="let item of askItems">
+                        <ion-list padding *ngFor="let item of askItems" radio-group [(ngModel)]="multi">
                             <div *ngIf="poll.id_pregunta == item.id_pregunta">
                                 <ion-item>
-                                    <ion-radio></ion-radio>
                                     <ion-label>{{item.respuesta}}</ion-label>
+                                    <ion-radio value={{item.respuesta}}></ion-radio>
                                 </ion-item>
+                                
+                                    <!-- <ion-radio value={{item.respuesta}}></ion-radio> -->
+                         
                             </div>
                         </ion-list>
-                    </ion-item>
-                </div>
+                        <button ion-button (click)="saveMulti(item, poll.id_pregunta)">Guardar</button>
+                 
+                    </div> 
 
 
 
@@ -40,7 +43,12 @@
                     <button ion-button (click)="saveStar(poll.id_pregunta)">Guardar</button>
                 </div>
 
-                <div class="container" *ngIf="poll.id_tipo_pregunta == 7 || poll.id_tipo_pregunta == 3">
+                <div class="container" *ngIf="poll.id_tipo_pregunta == 7">
+                    <ion-input type="text" placeholder="Inserte aqui su respuesta" [(ngModel)]="inputAnswer"></ion-input>
+                     <button ion-button (click)="saveInput(poll.id_pregunta)">Guardar</button>
+                </div>
+
+                <div class="container" *ngIf="poll.id_tipo_pregunta == 3">
                     <ion-input type="text" placeholder="Inserte aqui su respuesta" [(ngModel)]="inputAnswer"></ion-input>
                      <button ion-button (click)="saveInput(poll.id_pregunta)">Guardar</button>
                 </div>

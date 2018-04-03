@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { IonicPage, NavController, NavParams, ItemGroup } from 'ionic-angular';
+import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { ToastController } from 'ionic-angular';
 
@@ -23,6 +23,7 @@ export class DoPoollPage {
   escala5: any;
   escala10: any;
   multiple: any;
+  multi: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http, private toastCtrl:ToastController) {
     this.encuestaId = navParams.get('encuesta_id');
@@ -47,9 +48,33 @@ export class DoPoollPage {
 
   doPoll(){
     console.log(this.resultado.length);
+    console.log(this.addAnswer.length);
     console.log(this.addAnswer);
     console.log(this.addIdPreguntas);
     console.log("LA encuesta es: " +this.encuestaId);
+
+    if(this.resultado.length == this.addAnswer.length && this.addAnswer.length == this.addIdPreguntas.length){
+      console.log("Vamo a guardar");
+
+      for(var i=0; i < this.resultado.length+1; i++){
+        this.http.post('https://apex.oracle.com/pls/apex/indeme/INresultAdd/', {
+          'id_encuesta': this.encuestaId,
+          'id_pregunta': this.addIdPreguntas[i],
+          'resultado': this.addAnswer[i]
+        }).map((response:Response)=>{
+          return response.json();
+        }).subscribe(
+          ()=> {console.log("Success");
+        },
+          (error)=>{
+            console.log('error');
+          }
+        )
+      }
+    }
+    else{
+      this.presentToast("Asegurate de haber contestado cada una de las preguntas.")
+    }
   }
 
   Escala(number, idPregunta){
@@ -66,11 +91,6 @@ export class DoPoollPage {
     this.addIdPreguntas.push(idPregunta);
   }
 
-  items(item, idPregunta){
-    console.log(item);
-    console.log(idPregunta);
-    this.addIdPreguntas.push(idPregunta);
-  }
 
   saveFace(face, idPregunta){
     console.log(face);
@@ -123,7 +143,8 @@ export class DoPoollPage {
 
   saveMulti(item, idPregunta){
     console.log(item);
-    this.addAnswer.push(this.multiple);
+    console.log(this.multi);
+    this.addAnswer.push(this.multi);
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
   }
