@@ -1,40 +1,40 @@
-
- 
 <ion-content class="login-content" padding>
-  <div class="login-box">
-      <ion-row>
-        <ion-col>
-          <ion-list inset>
-            
-            <ion-item>
-              <ion-input type="number" placeholder="Tamaño de la población" id="poblacion" name="poblacion" [(ngModel)]="poblacionValor"  required></ion-input>
-            </ion-item>
-             <ion-item>
-              <ion-label>Nivel de confianza</ion-label>
-              <ion-select [(ngModel)]="confianza">
-                <ion-option value="1.28">80%</ion-option>
-                <ion-option value="1.44">85%</ion-option>
-                <ion-option value="1.65">90%</ion-option>
-                <ion-option value="1.96">95%</ion-option>
-                <ion-option value="2.58">99%</ion-option>
-              </ion-select>
-            </ion-item>
-            <ion-item>
-              <ion-input type="number" placeholder="Margen de error" name="error"  [(ngModel)]="errorValor"  required></ion-input>
-            </ion-item>
-           
-          </ion-list>
+    <div class="login-box">
+        <ion-card>
+            <ion-row>
+                <ion-col>
+                    <ion-list inset>
 
-        </ion-col>
-      </ion-row>
-      
-      <ion-row>
-        <ion-col class="signup-col">
-          <button ion-button (click)="calcularMuestra()" full>Calcular</button>
-        </ion-col>
-        <ion-item>
-      <ion-label>{{totalResultado}}</ion-label>
-    </ion-item>
-      </ion-row>
-  </div>
+                        <ion-item>
+                            <ion-input type="number" placeholder="Tamaño de la población" id="poblacion" name="poblacion" [(ngModel)]="poblacionValor" required></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Nivel de confianza</ion-label>
+                            <ion-select [(ngModel)]="confianza">
+                                <ion-option value="1.28">80%</ion-option>
+                                <ion-option value="1.44">85%</ion-option>
+                                <ion-option value="1.65">90%</ion-option>
+                                <ion-option value="1.96">95%</ion-option>
+                                <ion-option value="2.58">99%</ion-option>
+                            </ion-select>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input type="number" placeholder="Margen de error" name="error" [(ngModel)]="errorValor" required></ion-input>
+                        </ion-item>
+
+                    </ion-list>
+
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col class="signup-col">
+                    <button ion-button (click)="calcularMuestra()" full>Calcular</button>
+                </ion-col>
+                <ion-item>
+                    <ion-label>{{totalResultado}}</ion-label>
+                </ion-item>
+            </ion-row>
+        </ion-card>
+    </div>
 </ion-content>

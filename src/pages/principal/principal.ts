@@ -39,15 +39,6 @@ export class PrincipalPage {
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.auth.idUsuario).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
-      // console.log(this.auth.idUsuario);
-      // console.log(this.resultado.length);
-      for (var i=0; i <this.resultado.length; i++){
-        if(this.resultado[i].id_usuarios == this.auth.idUsuario){
-          //console.log("//////////");
-          //console.log(this.resultado[i].id_encuesta);
-          this.pollsUser.push(this.resultado[i].id_encuesta);
-        }
-      }
     });
   }
 
@@ -93,7 +84,7 @@ export class PrincipalPage {
           }
         },
         {
-          text: 'OK',
+          text: 'Aceptar',
           handler: (data:string) => {
             console.log(data);
             if (data == "0"){

@@ -1,19 +1,18 @@
-
 <ion-header>
-  <ion-navbar>
-    <ion-title>Resultados</ion-title>
-  </ion-navbar>
-
+    <ion-navbar class="toolbar toolbar-md">
+        <ion-title class="toolbar-title toolbar-title-md">
+            Resultados.
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
     <ion-item>
         <ion-card padding *ngFor="let poll of resultado2">
-          <div *ngIf="poll.id_encuesta == encuestaId">
-          <div class="card-title">{{poll.pregunta}}</div>
-          <div class="card-subtitle">{{poll.respuesta}}</div>
-          <div class="card-subtitle">Número de respuestas: </div></div>
+            <div class="card-title">{{poll.pregunta}}</div>
+            <div class="card-subtitle">{{poll.resultado}}</div>
+            <div class="card-subtitle">Número de respuestas: </div>
         </ion-card>
-      </ion-item>
+    </ion-item>
 </ion-content>

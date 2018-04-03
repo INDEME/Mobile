@@ -1,52 +1,42 @@
 page-login {
-  .toolbar-background-md{
-    background: #030B26;
-}
-
-.toolbar-title-md{
-  padding: 0 12px;
-  font-size: 2rem;
-  font-weight: 500;
-  color: white;  
-}
-    .login-content {
-      background-color: #DDDD;
-   
-         .login-box {
-        padding: 20px 20px 0px 20px;
-        margin-top: 30px;
-      }
-   
-      ion-row {
-         align-items: center;
-         text-align: center;
-       }
-    
-       ion-item {
-           border-radius: 30px !important;
-           padding-left: 30px !important;
-           font-size: 0.9em;
-           margin-bottom: 10px;
-           border: 1px solid #ffffff;
-           box-shadow: none !important;
-       }
-   
-       .signup-col {
-         margin: 0px 16px 0px 16px;
-         padding-bottom: 20px;
-       }
-   
-       .item-inner {
-         border-bottom-color: #ffffff !important;
-         box-shadow: none !important;
-       }
-   
-       
-   
-       .register-btn {
-         color: #757575;
-         font-size: 0.8em;
-       }
+    .toolbar-background-md {
+        background: #030B26;
     }
-   
-  }
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: white;
+    }
+    .login-content {
+        background-color: #DDDD;
+        .login-box {
+            padding: 20px 20px 0px 20px;
+            margin-top: 30px;
+        }
+        ion-row {
+            align-items: center;
+            text-align: center;
+        }
+        ion-item {
+            border-radius: 30px !important;
+            padding-left: 30px !important;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            border: 1px solid #ffffff;
+            box-shadow: none !important;
+        }
+        .signup-col {
+            margin: 0px 16px 0px 16px;
+            padding-bottom: 20px;
+        }
+        .item-inner {
+            border-bottom-color: #ffffff !important;
+            box-shadow: none !important;
+        }
+        .register-btn {
+            color: #757575;
+            font-size: 0.8em;
+        }
+    }
+}

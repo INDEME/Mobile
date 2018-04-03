@@ -1,10 +1,13 @@
 <ion-header>
-  <ion-navbar color="dark">
-    <ion-title>Registrarse</ion-title>
-  </ion-navbar>
+    <ion-navbar class="toolbar toolbar-md">
+        <ion-title class="toolbar-title toolbar-title-md">
+            Registrarse
+        </ion-title>
+    </ion-navbar>
 </ion-header>
- 
+
 <ion-content class="login-content" padding>
+<<<<<<< HEAD
   <div class="login-box">
     
     <form (ngSubmit)="register()" #registerForm="ngForm">
@@ -22,24 +25,43 @@
             <ion-item>
               <ion-input type="text"  [(ngModel)]="nombre" placeholder="Nombre" name="name"  required></ion-input>
             </ion-item>
+=======
+    <div class="login-box">
 
-            <ion-item>
-              <ion-input type="password"  [(ngModel)]="contrasena" placeholder="Contraseña" name="password"  required></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input type="password" [(ngModel)]="contrasena2" placeholder="Contraseña" name="password"  required></ion-input>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-      </ion-row>
-      
-      <ion-row>
-        <ion-col class="signup-col">
-          <button ion-button class="submit-btn"  type="submit" (click)="register()">ACEPTAR</button>
-        </ion-col>
-      </ion-row>
-      </ion-card>
-    </form>
+        <form (ngSubmit)="register()" #registerForm="ngForm">
+            <ion-card class="card card-md">
+                <ion-card-header>
+                    Registrate!
+                </ion-card-header>
+                <ion-row>
+                    <ion-col>
+                        <ion-list inset>
 
-  </div>
+                            <ion-item>
+                                <ion-input type="email" [(ngModel)]="email" placeholder="Correo electronico" name="email" required></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="nombre" placeholder="Nombre" name="name" required></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-input type="password" [(ngModel)]="contrasena" placeholder="Contraseña" name="password" required></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="password" [(ngModel)]="contrasena2" placeholder="Contraseña" name="password" required></ion-input>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+>>>>>>> 8f561953c2ab7f6f81fe9b4801b909d48fd7dbfd
+
+                <ion-row>
+                    <ion-col class="signup-col">
+                        <button ion-button class="submit-btn" type="submit" (click)="register()">ACEPTAR</button>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </form>
+
+    </div>
 </ion-content>

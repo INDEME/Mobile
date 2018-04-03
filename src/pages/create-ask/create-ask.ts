@@ -30,6 +30,8 @@ export class CreateAskPage {
   askSlider: any;
   answer: any;
   askSliderCount: number;
+  idEncuestas: any [] = [];
+
   constructor(public navCtrl: NavController,public alertCtrl:AlertController, public navParams: NavParams, public http:Http, public auth: AuthSevice) {
     this.IdentificadorUsuario = this.auth.idUsuario;
     this.item = navParams.data.item;
@@ -40,26 +42,23 @@ export class CreateAskPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateAskPage');
-  }
-
-  presentPrompt() {
-  }
-
-  OnSave(){
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/' + this.IdentificadorUsuario).map(res => res.json()).subscribe(data => {
-    this.resultado = data.items;
-      
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/' + this.IdentificadorUsuario ).map(res => res.json()).subscribe(data => {
+      this.resultado = data.items;
+      console.log(this.resultado);
       if(data.items.length >= 1){
         console.log("Holaaaaaaa: "+ this.resultado[data.items.length-1].id_encuesta);
         this.id_encuesta = this.resultado[data.items.length-1].id_encuesta;
+        console.log ("Hola soy la encuesta: " + this.id_encuesta);
       }
-
       else{
         console.log("id encuesta no encontrado"); 
-      }
+      }});
+  }
 
-    });
 
+
+  OnSave(){
+    console.log(this.id_encuesta + "La encuesta es:");
     this.http.post('https://apex.oracle.com/pls/apex/indeme/INask/', {
       'id_encuesta': this.id_encuesta,
       'id_tipo': this.id_tipo,
@@ -85,9 +84,12 @@ export class CreateAskPage {
     
   }
   SaveAnswer(){
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INask/' + this.IdentificadorUsuario +"/"+this.id_tipo ).map(res => res.json()).subscribe(data => {
+    console.log("Encuesta " +this.id_encuesta);
+    console.log("Pregunta " + this.pregunta);
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskGet/' + this.id_encuesta +"/"+this.pregunta ).map(res => res.json()).subscribe(data => {
       this.resultAsk = data.items;
-      
+      console.log(this.resultAsk[0]);
+      this.id_pregunta = this.resultAsk[0];
       if(data.items.length >= 1){
         console.log("Pregunta noumero: "+ this.resultAsk[data.items.length-1].id_pregunta);
         this.id_pregunta = this.resultAsk[data.items.length-1].id_pregunta;
@@ -98,8 +100,7 @@ export class CreateAskPage {
       }
 
     });
-    /*
-    for(var i=0; i < this.asks.length; i++){
+    for(var i=0; i < this.asks.length+1; i++){
       this.http.post('https://apex.oracle.com/pls/apex/indeme/INanswer/', {
         'id_encuesta': this.id_encuesta,
         'id_pregunta': this.id_pregunta,
@@ -113,8 +114,11 @@ export class CreateAskPage {
           console.log('error');
         }
       )
-
     }
-  */
+    console.log("HOAAAAAAAAAAAAa");
+    console.log(this.id_encuesta);
+    console.log(this.id_pregunta);
+    console.log(this.asks);
+
   }
 }

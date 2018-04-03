@@ -1,15 +1,15 @@
-<ion-content padding>
-<button item-right clear (click)="create()">
+<ion-content padding class="fondo">
+    <button item-right clear (click)="create()">
     <ion-icon name="add-circle" style="zoom:4.0;" c></ion-icon>
 </button>
 
-               
-                <ion-item>
-                        <ion-card padding *ngFor="let poll of resultado" (click)="menu(poll)">
-                            <div class="card-title">Encuesta</div>
-                            <div class="card-subtitle">
-                                <ion-icon name="ios-clipboard-outline"></ion-icon>
-                            </div>
-                        </ion-card>
-                </ion-item>
+
+    <ion-item>
+        <ion-card padding *ngFor="let poll of resultado" (click)="menu(poll.id_encuesta)">
+            <div class="card-title">Encuesta</div>
+            <div class="card-subtitle">
+                <ion-icon name="ios-clipboard-outline"></ion-icon>
+            </div>
+        </ion-card>
+    </ion-item>
 </ion-content>
