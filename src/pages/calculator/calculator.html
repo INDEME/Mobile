@@ -1,15 +1,17 @@
-<ion-content class="login-content" padding>
-    <div class="login-box">
+<ion-content class="login-content bg-color" padding>
+    <div class="login-box card-text">
         <ion-card>
             <ion-row>
                 <ion-col>
-                    <ion-list inset>
+                    <ion-list>
 
+                        <strong>Tamaño de la población:</strong>
                         <ion-item>
-                            <ion-input type="number" placeholder="Tamaño de la población" id="poblacion" name="poblacion" [(ngModel)]="poblacionValor" required></ion-input>
+                            <ion-input type="number" id="poblacion" name="poblacion" [(ngModel)]="poblacionValor" required></ion-input>
                         </ion-item>
+                        <strong>Nivel de confianza:</strong>
                         <ion-item>
-                            <ion-label>Nivel de confianza</ion-label>
+                            <ion-label> -- </ion-label>
                             <ion-select [(ngModel)]="confianza">
                                 <ion-option value="1.28">80%</ion-option>
                                 <ion-option value="1.44">85%</ion-option>
@@ -18,8 +20,9 @@
                                 <ion-option value="2.58">99%</ion-option>
                             </ion-select>
                         </ion-item>
+                        <strong>Margen de error:</strong>
                         <ion-item>
-                            <ion-input type="number" placeholder="Margen de error" name="error" [(ngModel)]="errorValor" required></ion-input>
+                            <ion-input type="number" name="error" [(ngModel)]="errorValor" required></ion-input>
                         </ion-item>
 
                     </ion-list>
@@ -29,7 +32,7 @@
 
             <ion-row>
                 <ion-col class="signup-col">
-                    <button ion-button (click)="calcularMuestra()" full>Calcular</button>
+                    <button round ion-button (click)="calcularMuestra()" full>Calcular</button>
                 </ion-col>
                 <ion-item>
                     <ion-label>{{totalResultado}}</ion-label>

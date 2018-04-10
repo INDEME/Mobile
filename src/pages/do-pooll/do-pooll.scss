@@ -1,5 +1,4 @@
 page-do-pooll {
-
     .toolbar-background-md {
         background: #030B26;
     }
@@ -8,5 +7,8 @@ page-do-pooll {
         font-size: 2rem;
         font-weight: 500;
         color: white;
+    }
+    ion-row {
+        align-items: center;
     }
 }

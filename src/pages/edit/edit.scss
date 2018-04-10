@@ -1,6 +1,6 @@
 page-edit {
     .login-content {
-        
+        background-color: #DDDD;
         .login-box {
             padding: 10px 10px 0px 10px;
             margin-top: 0px;
@@ -8,14 +8,6 @@ page-edit {
         ion-row {
             align-items: center;
             text-align: center;
-        }
-        ion-item {
-            border-radius: 30px !important;
-            padding-left: 30px !important;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-            border: 1px solid #000000;
-            box-shadow: none !important;
         }
         .signup-col {
             margin: 0px 16px 0px 16px;
@@ -28,6 +20,9 @@ page-edit {
         .register-btn {
             color: #757575;
             font-size: 0.8em;
+        }
+        .icon-size {
+            font-size: 90px;
         }
     }
 }

@@ -16,14 +16,14 @@
                 <ion-input type="text" [(ngModel)]="pregunta"></ion-input>
             </ion-item>
 
-
-            <button ion-button full (click)="OnSave()">Agregar pregunta</button>
-
+            <ion-row>
+                <button ion-button round (click)="OnSave()">Agregar pregunta</button>
+            </ion-row>
 
 
             <div *ngIf="item.id==2">
                 <ion-input type="text" placeholder="Respuesta" [(ngModel)]="answer" required></ion-input>
-                <button ion-button type="submit" (click)="addAskOption()">Agregar Respuesta</button>
+                <button ion-button type="submit" (click)="addAskOption()" round>Agregar Respuesta</button>
                 <ion-item>
                     <ion-list padding *ngFor="let num of asks">
                         <ion-item>
@@ -142,7 +142,7 @@
             </div>
 
             <div *ngIf="item.id==2">
-                <button ion-button type="submit" (click)="SaveAnswer()">Guardar respuestas</button>
+                <button ion-button type="submit" (click)="SaveAnswer()" round>Guardar respuestas</button>
             </div>
 
         </ion-list>

@@ -16,28 +16,33 @@
                 </ion-card-header>
                 <ion-row>
                     <ion-col>
-                        <ion-list inset>
-
+                        <ion-list>
                             <ion-item>
                                 <ion-input type="email" [(ngModel)]="email" placeholder="Correo electronico" name="email" required></ion-input>
                             </ion-item>
+                        </ion-list>
+                        <ion-list>
                             <ion-item>
                                 <ion-input type="text" [(ngModel)]="nombre" placeholder="Nombre" name="name" required></ion-input>
                             </ion-item>
-
+                        </ion-list>
+                        <ion-list>
                             <ion-item>
                                 <ion-input type="password" [(ngModel)]="contrasena" placeholder="Contraseña" name="password" required></ion-input>
                             </ion-item>
+                        </ion-list>
+                        <ion-list>
                             <ion-item>
                                 <ion-input type="password" [(ngModel)]="contrasena2" placeholder="Contraseña" name="password" required></ion-input>
                             </ion-item>
                         </ion-list>
+
                     </ion-col>
                 </ion-row>
 
                 <ion-row>
                     <ion-col class="signup-col">
-                        <button ion-button class="submit-btn" type="submit" (click)="register()">ACEPTAR</button>
+                        <button ion-button round class="submit-btn" type="submit" (click)="register()">Registrarse</button>
                     </ion-col>
                 </ion-row>
             </ion-card>
