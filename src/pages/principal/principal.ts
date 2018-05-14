@@ -65,14 +65,8 @@ export class PrincipalPage {
         },
         {
           type: 'radio',
-          label: 'Graficar resultados.',
-          value: '2'
-        }
-        ,
-        {
-          type: 'radio',
           label: 'Ver resultados.',
-          value: '3'
+          value: '2'
         }
       ],
       buttons: [
@@ -96,10 +90,6 @@ export class PrincipalPage {
               this.navCtrl.push(DoPoollPage, {encuesta_id});
             }
             else if (data == "2"){
-              console.log("Graficar encuesta");
-              this.navCtrl.push(GraphicPage);
-            }
-            else if (data == "3"){
               console.log("Ver encuesta");
               this.navCtrl.push(ResultpollsPage, {encuesta_id});
             }
