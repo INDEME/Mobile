@@ -6,10 +6,7 @@
 
     <ion-item>
         <ion-card padding *ngFor="let poll of resultado" (click)="menu(poll.id_encuesta)">
-            <div class="card-title">Encuesta</div>
-            <div class="card-subtitle">
-                <ion-icon name="ios-clipboard-outline"></ion-icon>
-            </div>
+                <p class="card-title">Encuesta creada el: {{poll.fecha | date:'dd/MM/yyyy'}} </p>
         </ion-card>
     </ion-item>
 </ion-content>
