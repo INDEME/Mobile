@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-angular';
 import {Http} from '@angular/http';
 import 'rxjs/Rx';
 
@@ -19,12 +19,18 @@ export class SeePollPage {
   encuestaId: any;
   resultado: any;
   askItems: any;
+  loading: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
     console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,");
     console.log(this.encuestaId);
     console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,");
+    
+this.loading = this.loadingCtrl.create({
+  content: 'Cargando preguntas...'
+});
+this.loading.present();
   }
 
   ionViewDidLoad() {
@@ -36,6 +42,7 @@ export class SeePollPage {
 
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskItems/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.askItems = data.items;
+      this.loading.dismiss();
       console.log(this.askItems);
     });
   }

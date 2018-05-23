@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController  } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { PrincipalPage } from '../principal/principal';
 import { ToastController } from 'ionic-angular';
@@ -17,11 +17,14 @@ export class LoginPage {
   model: any = {};
   nombre: string;
   contrasena: string;
-
+  loading: any;
   resultado: any;
 
-  constructor(public navCtrl: NavController, private toastCtrl:ToastController, public auth: AuthSevice, public http:Http) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, private toastCtrl:ToastController, public auth: AuthSevice, public http:Http) {
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
+    this.loading = this.loadingCtrl.create({
+      content: 'Iniciando sessión...'
+  });
   }
  
   ionViewWillEnter() {
@@ -40,6 +43,7 @@ export class LoginPage {
   }
 
   login(){
+    this.loading.present();
     //console.log(this.nombre);
     //console.log(this.contrasena);
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INgetuser/' + this.nombre +"/"+ this.contrasena).map(res => res.json()).subscribe(data => {
@@ -50,9 +54,11 @@ export class LoginPage {
         this.auth.idUsuario = this.resultado[0].id_usuarios;
         this.auth.NombreUsuario = this.resultado[0].nombres;
         //console.log( this.auth.idUsuario);
+        this.loading.dismiss();
         this.navCtrl.push(PrincipalPage);
       }
       else{
+        this.loading.dismiss();
         this.presentToast("Usuario y/o contraseña incorrectos."); 
       }
     });

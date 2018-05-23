@@ -1,9 +1,4 @@
-<ion-content padding class="fondo bg-color">
-    <button item-right clear (click)="create()">
-    <ion-icon name="add-circle" class="create-icon" style="zoom:4.0;" c></ion-icon>
-</button>
-
-
+<ion-content>
     <ion-item>
         <ion-card padding *ngFor="let poll of resultado" (click)="menu(poll.id_encuesta)">
                 <p class="card-title">Encuesta creada el: {{poll.fecha | date:'dd/MM/yyyy'}} </p>

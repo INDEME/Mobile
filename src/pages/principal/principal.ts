@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-angular';
 import { CreatePage } from '../create/create';
 import { ResultpollsPage } from '../resultpolls/resultpolls';
 import { DoPoollPage } from '../do-pooll/do-pooll';
@@ -27,9 +27,13 @@ export class PrincipalPage {
   array = [];
   resultado: any;
   pollsUser: any [] = [];
+  loading: any;
   
 
-  constructor(public navCtrl: NavController, private toastCtrl:ToastController, public navParams: NavParams, private alertCtrl: AlertController, public http:Http,  public auth: AuthSevice) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, private toastCtrl:ToastController, public navParams: NavParams, private alertCtrl: AlertController, public http:Http,  public auth: AuthSevice) {
+  this.loading = this.loadingCtrl.create({
+  content: 'Cargando tus encuestas...'});
+  this.loading.present();
   }
 
   ionViewDidLoad() {
@@ -39,6 +43,7 @@ export class PrincipalPage {
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.auth.idUsuario).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
+      this.loading.dismiss();
     });
   }
 

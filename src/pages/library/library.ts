@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-angular';
 import { ConsultaProvider} from '../../providers/consulta/consulta';
 
 /**
@@ -15,20 +15,25 @@ import { ConsultaProvider} from '../../providers/consulta/consulta';
   templateUrl: 'library.html',
 })
 export class LibraryPage {
-
+  loading: any;
   public list: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public consulta: ConsultaProvider) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public consulta: ConsultaProvider) {
     this.loadList();
+    this.loading = this.loadingCtrl.create({
+      content: 'Cargando preguntas...'
+  });
+  this.loading.present();
   }
 
   loadList() {
     return new Promise(resolve => {
       this.consulta.getListPreguntas().then(results => {
         this.list = results;
+        this.loading.dismiss();
         //console.log(this.list);
         return resolve();
-
+        
       }).catch(err => {        
         console.log(err);
         return resolve();
