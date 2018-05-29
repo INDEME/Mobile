@@ -28,22 +28,14 @@ export class PrincipalPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PrincipalPage');
     this.usuario = this.auth.idUsuario;
-    console.log(this.usuario + "hola");
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.auth.idUsuario).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
-      console.log(this.resultado);
       this.loading.dismiss();
     });
   }
 
   menu(encuesta_id){
-    var myJsonString = JSON.stringify(this.pollsUser);
-    console.log("///////////////");
-    console.log(myJsonString);
-    console.log(encuesta_id);
-    console.log("///////////////");
     let alert = this.alertCtrl.create({
       title: '¿Qué deseas hacer?',
       inputs: [
@@ -68,23 +60,18 @@ export class PrincipalPage {
           text: 'Cancelar',
           role: 'cancel',
           handler: () => {
-            console.log('Cancel clicked');
           }
         },
         {
           text: 'Aceptar',
           handler: (data:string) => {
-            console.log(data);
             if (data == "0"){
-              console.log("Visualizar encuesta");
               this.navCtrl.push(SeePollPage, {encuesta_id});
             }
             else if (data == "1"){
-              console.log("Aplicar encuesta");
               this.navCtrl.push(DoPoollPage, {encuesta_id});
             }
             else if (data == "2"){
-              console.log("Ver encuesta");
               this.navCtrl.push(ResultpollsPage, {encuesta_id});
             }
             }
@@ -97,29 +84,17 @@ export class PrincipalPage {
 
   create(){
     this.usuario = this.auth.idUsuario;
-    console.log(this.usuario);
     this.http.post('https://apex.oracle.com/pls/apex/indeme/INpolls/', {
       'id': this.usuario
     }).map((response:Response)=>{
       return response.json();
-      //console.log (response.json());
-    }).subscribe(
-      ()=> {console.log("Success");
-      
-    },
-      (error)=>{
-        console.log('error'+ error);
-      }
-    )
+    })
     this.navCtrl.push(CreatePage);
 }
 
 add(){
-  console.log(this.aswer);
   if(this.Ask.length < 2){
   this.Ask.push(this.aswer);
-  console.log(this.Ask[0]);
-  console.log(this.Ask.length);
 }
 else{
   this.presentToast("No puedes agregar más.")

@@ -24,15 +24,10 @@ export class LibraryPage {
         this.list = results;
         this.loading.dismiss();
         return resolve();
-      }).catch(err => {        
-        console.log(err);
+      }).catch(err => {    
         return resolve();
 
       });
     })
-  }
-
- ionViewDidLoad() {
-    console.log('ionViewDidLoad LibraryPage');
   }
 }

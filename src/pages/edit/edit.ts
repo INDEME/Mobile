@@ -22,11 +22,9 @@ export class EditPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditPage');
     this.datoNombre = this.auth.NombreUsuario;
     this.IdentificadorUsuario = this.auth.idUsuario;
     this.nombreUsuario = "Hola a: "+this.datoNombre;
-    console.log(this.IdentificadorUsuario);
   }
 
   edit(){
@@ -37,11 +35,10 @@ export class EditPage {
       }).map((response:Response)=>{
         return response.json();
       }).subscribe(
-        ()=> {console.log("Success");
+        ()=> {
         this.presentToast("Se ha modificado tu cuenta satisfactoriamente.");
       },
         (error)=>{
-          console.log('error');
           this.presentToast("Error al modificar tu cuenta. Intentalo más tarde.");
         }
       )

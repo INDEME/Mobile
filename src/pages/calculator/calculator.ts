@@ -30,12 +30,7 @@ export class CalculatorPage {
   TOTAL: number;
   totalResultado: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
-    
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalculatorPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {    
   }
 
   calcularMuestra(){

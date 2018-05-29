@@ -20,15 +20,9 @@ export class ResultpollsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ResultpollsPage');
-    console.log("000000000000000");
-    console.log(this.encuestaId);
-    console.log("000000000000000");
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskResult/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado2 = data.items;
       this.loading.dismiss();
-    console.log("Results");
-      console.log(this.resultado2);
     });
   }
 

@@ -85,10 +85,6 @@ export class CreatePage {
     ]
   }
  
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CreatePage');
-  }
-
   openNavDetailsPage(item) {
     this.navCtrl.push(CreateAskPage, { item: item });
   }

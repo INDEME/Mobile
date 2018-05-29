@@ -10,7 +10,4 @@ export class GraphicPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GraphicPage');
-  }
 }
