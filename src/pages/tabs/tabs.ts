@@ -1,10 +1,4 @@
-import { Component } from '@angular/core';
-
-import { HomePage } from '../home/home';
-import { CalculatorPage } from '../calculator/calculator';
-import { EditPage } from '../edit/edit';
-import { LibraryPage } from '../library/library';
-
+import { Component, HomePage, CalculatorPage, EditPage, LibraryPage  } from '../index.paginas';
 
 @Component({
   templateUrl: 'tabs.html'

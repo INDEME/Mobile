@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, NavController } from '../index.paginas';
 
 @Component({
   selector: 'page-contact',

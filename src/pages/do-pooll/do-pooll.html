@@ -20,9 +20,6 @@
                                     <ion-label>{{item.respuesta}}</ion-label>
                                     <ion-radio value={{item.respuesta}}></ion-radio>
                                 </ion-item>
-
-                                <!-- <ion-radio value={{item.respuesta}}></ion-radio> -->
-
                             </div>
                         </ion-list>
                         <button ion-button (click)="saveMulti(item, poll.id_pregunta)" round>Guardar</button>
@@ -166,7 +163,6 @@
 
                 </div>
             </ion-list>
-
             <button ion-button type="submit" (click)="doPoll()" round>Responder encuesta</button>
         </ion-row>
     </ion-card>

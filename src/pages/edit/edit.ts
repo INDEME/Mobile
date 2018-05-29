@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
-import { Http, Response} from '@angular/http';
 import 'rxjs/Rx';
-import { AuthSevice } from '../../services/auth/auth';
+import { Component, IonicPage, NavController, NavParams, ToastController, Http, Response,
+  AuthSevice, CreateAskPage } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -59,5 +56,4 @@ export class EditPage {
     });
     toast.present();
   }
-
 }

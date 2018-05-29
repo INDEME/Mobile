@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
 import { CreateAskPage } from './create-ask';
+import { NgModule, IonicPageModule } from '../index.paginas';
 
 @NgModule({
   declarations: [

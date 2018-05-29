@@ -1,15 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
-import { AuthSevice } from '../../services/auth/auth';
+import { Component, IonicPage, NavController, NavParams, Http, Response, AlertController,
+  AuthSevice } from '../index.paginas';
 
-/**
- * Generated class for the CreateAskPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -55,8 +47,6 @@ export class CreateAskPage {
       }});
   }
 
-
-
   OnSave(){
     console.log(this.id_encuesta + "La encuesta es:");
     this.http.post('https://apex.oracle.com/pls/apex/indeme/INask/', {
@@ -73,16 +63,17 @@ export class CreateAskPage {
       }
     )
   }
+
   addAskOption(){
     console.log(this.answer);
     this.asks.push(this.answer);
     console.log(this.asks[0]);
   }
+
   addAskSlider(){
-    
     this.askSliderCount = this.answer + 1;
-    
   }
+
   SaveAnswer(){
     console.log("Encuesta " +this.id_encuesta);
     console.log("Pregunta " + this.pregunta);
@@ -119,6 +110,5 @@ export class CreateAskPage {
     console.log(this.id_encuesta);
     console.log(this.id_pregunta);
     console.log(this.asks);
-
   }
 }

@@ -1,16 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-angular';
-import { CreatePage } from '../create/create';
-import { ResultpollsPage } from '../resultpolls/resultpolls';
-import { DoPoollPage } from '../do-pooll/do-pooll';
-import { SeePollPage} from '../see-poll/see-poll';
-import { GraphicPage } from '../graphic/graphic';
-import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
-import { AuthSevice } from '../../services/auth/auth';
-import { AlertController } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
-import { CreateAskPage } from '../create-ask/create-ask';
+import { Component, IonicPage, NavController, NavParams, ToastController, Http, Response,
+  AuthSevice, CreateAskPage, LoadingController, CreatePage, ResultpollsPage, DoPoollPage,
+  SeePollPage, GraphicPage, AlertController } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -48,8 +39,6 @@ export class PrincipalPage {
   }
 
   menu(encuesta_id){
-    
-
     var myJsonString = JSON.stringify(this.pollsUser);
     console.log("///////////////");
     console.log(myJsonString);
@@ -145,5 +134,4 @@ presentToast(message) {
   });
   toast.present();
 }
-
 }

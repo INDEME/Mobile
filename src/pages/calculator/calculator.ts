@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
+import { Component, IonicPage, NavController, NavParams, ToastController } from '../index.paginas';
+
 
 @IonicPage()
 @Component({
@@ -60,17 +59,12 @@ export class CalculatorPage {
     this.totalResultado = String(this.TOTAL);
   }
 
-
-
-
   presentToast(resultadoFinal: number) {
     let toast = this.toastCtrl.create({
       message: 'Resultado: ' + resultadoFinal,
       duration: 3000,
       position: 'middle'
     });
-  
-  
     toast.present();
   }
 }

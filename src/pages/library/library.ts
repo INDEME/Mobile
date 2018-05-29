@@ -1,13 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-angular';
-import { ConsultaProvider} from '../../providers/consulta/consulta';
-
-/**
- * Generated class for the LibraryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component, IonicPage, NavController, NavParams, LoadingController, ConsultaProvider
+ } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -31,9 +23,7 @@ export class LibraryPage {
       this.consulta.getListPreguntas().then(results => {
         this.list = results;
         this.loading.dismiss();
-        //console.log(this.list);
         return resolve();
-        
       }).catch(err => {        
         console.log(err);
         return resolve();
@@ -42,12 +32,7 @@ export class LibraryPage {
     })
   }
 
-  doRefresh(refresher) {
-    this.loadList().then(() => refresher.complete());
-  }
-
  ionViewDidLoad() {
     console.log('ionViewDidLoad LibraryPage');
   }
-
 }

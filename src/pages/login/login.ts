@@ -1,11 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController, LoadingController  } from 'ionic-angular';
-import { SignupPage } from '../signup/signup';
-import { PrincipalPage } from '../principal/principal';
-import { ToastController } from 'ionic-angular';
-import {Http} from '@angular/http';
 import 'rxjs/Rx';
-import { AuthSevice } from '../../services/auth/auth';
+import { Component, IonicPage, NavController, LoadingController, ToastController, Http, PrincipalPage,
+  AuthSevice, SignupPage } from '../index.paginas';
 
 
 @Component({
@@ -44,16 +39,11 @@ export class LoginPage {
 
   login(){
     this.loading.present();
-    //console.log(this.nombre);
-    //console.log(this.contrasena);
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INgetuser/' + this.nombre +"/"+ this.contrasena).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
-      //console.log(this.resultado);
       if(data.items.length >= 1){
-        //this.presentToast("Acceso correcto.");
         this.auth.idUsuario = this.resultado[0].id_usuarios;
         this.auth.NombreUsuario = this.resultado[0].nombres;
-        //console.log( this.auth.idUsuario);
         this.loading.dismiss();
         this.navCtrl.push(PrincipalPage);
       }
@@ -64,7 +54,6 @@ export class LoginPage {
     });
   }
   
-
   presentToast(message) {
     let toast = this.toastCtrl.create({
       message: ''+message ,

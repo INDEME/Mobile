@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ItemGroup, LoadingController  } from 'ionic-angular';
-import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
-import { ToastController } from 'ionic-angular';
-
+import { Component, IonicPage, NavController, NavParams, ToastController, Http, Response,
+  LoadingController } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -42,7 +39,6 @@ export class DoPoollPage {
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsSearch/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
-     
     });
 
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskItems/' + this.encuestaId).map(res => res.json()).subscribe(data => {
@@ -58,10 +54,8 @@ export class DoPoollPage {
     console.log(this.addAnswer);
     console.log(this.addIdPreguntas);
     console.log("LA encuesta es: " +this.encuestaId);
-
     if(this.resultado.length == this.addAnswer.length && this.addAnswer.length == this.addIdPreguntas.length){
       console.log("Vamo a guardar");
-
       for(var i=0; i < this.resultado.length+1; i++){
         this.http.post('https://apex.oracle.com/pls/apex/indeme/INresultAdd/', {
           'id_encuesta': this.encuestaId,
@@ -96,7 +90,6 @@ export class DoPoollPage {
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
   }
-
 
   saveFace(face, idPregunta){
     console.log(face);
