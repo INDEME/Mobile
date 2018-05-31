@@ -65,16 +65,32 @@ export class DoPoollPage {
   }
 
   Escala(number, idPregunta){
+    if (this.addIdPreguntas.indexOf(idPregunta)>= 0){
+      this.presentToast("La pregunta ya ha sido guardada anteriormente");
+    }
+    else{
     this.addAnswer.push(number);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
+}
 
   saveInput(idPregunta){
+    if (this.addIdPreguntas.indexOf(idPregunta)>= 0){
+      this.presentToast("La pregunta ya ha sido guardada anteriormente");
+    }
+    else{
     this.addAnswer.push(this.inputAnswer);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
+}
 
   saveFace(face, idPregunta){
+    if (this.addIdPreguntas.indexOf(idPregunta)>= 0){
+      this.presentToast("La pregunta ya ha sido guardada anteriormente");
+    }
+    else{
     if (face == "happy"){
       this.presentToast("Carita feliz seleccionada.");
       this.addAnswer.push("happy");
@@ -84,42 +100,80 @@ export class DoPoollPage {
       this.addAnswer.push("sad");
     }
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
+}
 
   saveStar(idPregunta){
+    if (this.addIdPreguntas.indexOf(idPregunta)>= 0){
+      this.presentToast("La pregunta ya ha sido guardada anteriormente");
+    }
+    else{
     this.addAnswer.push(this.star);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
+}
 
   saveRange(idPregunta){
+    if (this.addIdPreguntas.indexOf(idPregunta)>= 0){
+      this.presentToast("La pregunta ya ha sido guardada anteriormente");
+    }
+    else{
     this.addAnswer.push(this.saturation);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
-
+  }
+  
   saveDimension(idPregunta){
+    if (this.addIdPreguntas.indexOf(idPregunta)>= 0){
+      this.presentToast("La pregunta ya ha sido guardada anteriormente");
+    }
+    else{
     this.addAnswer.push(this.dimensiones);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
+}
 
   saveEscala5(idPregunta){
+    if (this.addIdPreguntas.indexOf(idPregunta)>= 0){
+      this.presentToast("La pregunta ya ha sido guardada anteriormente");
+    }
+    else{
     this.addAnswer.push(this.escala5);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
+}
 
   saveEscala10(idPregunta){
+    if (this.addIdPreguntas.indexOf(idPregunta)>= 0){
+      this.presentToast("La pregunta ya ha sido guardada anteriormente");
+    }
+    else{
     this.addAnswer.push(this.escala10);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
+    }
   }
 
   saveMulti(item, idPregunta){
-    this.addAnswer.push(this.multi);
-    this.addIdPreguntas.push(idPregunta);
+    if (this.addIdPreguntas.indexOf(idPregunta)>= 0){
+      this.presentToast("La pregunta ya ha sido guardada anteriormente");
+    }
+    else{
+      this.addAnswer.push(this.multi);
+      this.addIdPreguntas.push(idPregunta);
+      this.presentToast("Respuesta guardada.");
+    }
   }
 
   presentToast(message) {
     let toast = this.toastCtrl.create({
       message: ''+message ,
-      duration: 3000,
+      duration: 1000,
       position: 'middle'
     });
     toast.present();
