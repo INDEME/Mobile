@@ -2,10 +2,8 @@
     <ion-card>
         <p class="subtitle">Elige tipo de pregunta</p>
         <ion-list no-line>
-
             <button ion-item *ngFor="let item of tipoPregunta" (click)="openNavDetailsPage(item)" icon-start>
       <ion-item *ngFor= "let item of preguntas"> </ion-item>
-      <!--<ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon>-->
       <ion-icon name="add-circle" [ngStyle]="{'color': item.color}" item-end></ion-icon>
       {{ item.title }}
     </button>

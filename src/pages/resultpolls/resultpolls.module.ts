@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
 import { ResultpollsPage } from './resultpolls';
+import { NgModule, IonicPageModule } from '../index.paginas';
 
 @NgModule({
   declarations: [

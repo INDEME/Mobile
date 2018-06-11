@@ -1,13 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ConsultaProvider} from '../../providers/consulta/consulta';
-
-/**
- * Generated class for the LibraryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component, IonicPage, NavController, NavParams, LoadingController, ConsultaProvider
+ } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -15,34 +7,42 @@ import { ConsultaProvider} from '../../providers/consulta/consulta';
   templateUrl: 'library.html',
 })
 export class LibraryPage {
-
+  loading: any;
+  nombre: string;
   public list: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public consulta: ConsultaProvider) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public consulta: ConsultaProvider) {
     this.loadList();
+    this.loading = this.loadingCtrl.create({
+      content: 'Cargando preguntas...'
+  });
+  this.loading.present();
   }
 
+  search(nombre){
+    return new Promise(resolve => {
+      this.consulta.getListPreguntasByName(this.nombre).then(results => {
+        this.list = results;
+        this.loading.dismiss();
+        console.log(results);
+        return resolve();
+      }).catch(err => {  
+         console.log(err);  
+        return resolve();
+      });
+    })
+  }
+  
   loadList() {
     return new Promise(resolve => {
       this.consulta.getListPreguntas().then(results => {
         this.list = results;
-        //console.log(this.list);
+        this.loading.dismiss();
         return resolve();
-
-      }).catch(err => {        
-        console.log(err);
+      }).catch(err => {    
         return resolve();
 
       });
     })
   }
-
-  doRefresh(refresher) {
-    this.loadList().then(() => refresher.complete());
-  }
-
- ionViewDidLoad() {
-    console.log('ionViewDidLoad LibraryPage');
-  }
-
 }

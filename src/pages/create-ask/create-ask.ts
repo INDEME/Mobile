@@ -1,15 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
-import { AuthSevice } from '../../services/auth/auth';
+import { Component, IonicPage, NavController, NavParams, Http, Response, AlertController,
+  AuthSevice } from '../index.paginas';
 
-/**
- * Generated class for the CreateAskPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -41,24 +33,17 @@ export class CreateAskPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateAskPage');
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/' + this.IdentificadorUsuario ).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
-      console.log(this.resultado);
       if(data.items.length >= 1){
-        console.log("Holaaaaaaa: "+ this.resultado[data.items.length-1].id_encuesta);
         this.id_encuesta = this.resultado[data.items.length-1].id_encuesta;
-        console.log ("Hola soy la encuesta: " + this.id_encuesta);
       }
       else{
-        console.log("id encuesta no encontrado"); 
+        
       }});
   }
 
-
-
   OnSave(){
-    console.log(this.id_encuesta + "La encuesta es:");
     this.http.post('https://apex.oracle.com/pls/apex/indeme/INask/', {
       'id_encuesta': this.id_encuesta,
       'id_tipo': this.id_tipo,
@@ -66,37 +51,28 @@ export class CreateAskPage {
     }).map((response:Response)=>{
       return response.json();
     }).subscribe(
-      ()=> {console.log("Success");
+      ()=> {
     },
       (error)=>{
-        console.log('error');
+
       }
     )
   }
+
   addAskOption(){
-    console.log(this.answer);
     this.asks.push(this.answer);
-    console.log(this.asks[0]);
   }
+
   addAskSlider(){
-    
     this.askSliderCount = this.answer + 1;
-    
   }
+
   SaveAnswer(){
-    console.log("Encuesta " +this.id_encuesta);
-    console.log("Pregunta " + this.pregunta);
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskGet/' + this.id_encuesta +"/"+this.pregunta ).map(res => res.json()).subscribe(data => {
       this.resultAsk = data.items;
-      console.log(this.resultAsk[0]);
       this.id_pregunta = this.resultAsk[0];
       if(data.items.length >= 1){
-        console.log("Pregunta noumero: "+ this.resultAsk[data.items.length-1].id_pregunta);
         this.id_pregunta = this.resultAsk[data.items.length-1].id_pregunta;
-      }
-
-      else{
-        console.log("pregunta no encontrada"); 
       }
 
     });
@@ -108,17 +84,12 @@ export class CreateAskPage {
       }).map((response:Response)=>{
         return response.json();
       }).subscribe(
-        ()=> {console.log("Success");
+        ()=> {
       },
         (error)=>{
-          console.log('error');
+          
         }
       )
     }
-    console.log("HOAAAAAAAAAAAAa");
-    console.log(this.id_encuesta);
-    console.log(this.id_pregunta);
-    console.log(this.asks);
-
   }
 }

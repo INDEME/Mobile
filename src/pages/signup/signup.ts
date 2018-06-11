@@ -1,10 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { LoginPage } from '../login/login';
-import { ToastController } from 'ionic-angular';
-import { FormBuilder} from '@angular/forms';
-import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
+import { Component, NavController, ToastController, Http, Response, FormBuilder,
+  LoginPage } from '../index.paginas';
 
 @Component({
   selector: 'page-signup',
@@ -32,6 +28,7 @@ export class SignupPage {
   ionViewWillLeave() {
     this.tabBarElement.style.display = 'flex';
   }
+
   takeMeBack() {
     this.navCtrl.parent.select(0);
   }
@@ -46,26 +43,18 @@ export class SignupPage {
         }).map((response:Response)=>{
           return response.json();
         }).subscribe(
-          rs => console.log(rs),
           er =>  this.presentToast('Usuario registrado correctamente.'),
-          () => console.log("Correctooooooo")
-          
         )
         }
-  
     else{
     this.presentToast('Rellena todos los campos de manera correcta.');
   }
-
 }
 
   comprobacion(){
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INgetuser/' + this.nombre +"/"+ this.contrasena).map(res => res.json()).subscribe(data => {
       this.resultadoUser = data.items;
-      console.log(this.resultadoUser);
       if(data.items.length >= 1){
-        console.log(this.resultadoUser);
-      
         this.navCtrl.push(LoginPage);
        }
       else{
@@ -82,6 +71,4 @@ export class SignupPage {
     });
     toast.present();
   }
-
-
 }

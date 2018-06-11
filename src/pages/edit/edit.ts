@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
-import { Http, Response} from '@angular/http';
 import 'rxjs/Rx';
-import { AuthSevice } from '../../services/auth/auth';
+import { Component, IonicPage, NavController, NavParams, ToastController, Http, Response,
+  AuthSevice, CreateAskPage } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -25,11 +22,9 @@ export class EditPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditPage');
     this.datoNombre = this.auth.NombreUsuario;
     this.IdentificadorUsuario = this.auth.idUsuario;
-    this.nombreUsuario = "Hola "+this.datoNombre;
-    console.log(this.IdentificadorUsuario);
+    this.nombreUsuario = "Hola: "+this.datoNombre;
   }
 
   edit(){
@@ -40,11 +35,10 @@ export class EditPage {
       }).map((response:Response)=>{
         return response.json();
       }).subscribe(
-        ()=> {console.log("Success");
+        ()=> {
         this.presentToast("Se ha modificado tu cuenta satisfactoriamente.");
       },
         (error)=>{
-          console.log('error');
           this.presentToast("Error al modificar tu cuenta. Intentalo más tarde.");
         }
       )
@@ -59,5 +53,4 @@ export class EditPage {
     });
     toast.present();
   }
-
 }

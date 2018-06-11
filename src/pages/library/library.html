@@ -1,10 +1,12 @@
 <ion-content padding>
+    <ion-item>
+        <ion-label stacked>Ingrese la pregunta que esta buscando:</ion-label>
+        <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+       <button ion-buttton class="submit-btn" full type="submit" (click)="search(nombre)" >BUSCAR</button> 
+    </ion-item>
     <ion-card>
-        <ion-refresher (ionRefresh)="doRefresh($event)">
-            <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Estirar para actualizar" refreshingSpinner="circles" refreshingText="Refrescando...">
-            </ion-refresher-content>
-        </ion-refresher>
-
         <ion-list>
             <ion-item *ngFor="let item of list">
                     <h3>{{ item.tipo }}</h3>

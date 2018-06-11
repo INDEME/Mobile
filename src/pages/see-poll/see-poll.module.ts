@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
 import { SeePollPage } from './see-poll';
+import { NgModule, IonicPageModule } from '../index.paginas';
 
 @NgModule({
   declarations: [

@@ -1,16 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CreatePage } from '../create/create';
-import { ResultpollsPage } from '../resultpolls/resultpolls';
-import { DoPoollPage } from '../do-pooll/do-pooll';
-import { SeePollPage} from '../see-poll/see-poll';
-import { GraphicPage } from '../graphic/graphic';
-import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
-import { AuthSevice } from '../../services/auth/auth';
-import { AlertController } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
-import { CreateAskPage } from '../create-ask/create-ask';
+import { Component, IonicPage, NavController, NavParams, ToastController, Http, Response,
+  AuthSevice, CreateAskPage, LoadingController, CreatePage, ResultpollsPage, DoPoollPage,
+  SeePollPage, GraphicPage, AlertController } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -27,29 +18,24 @@ export class PrincipalPage {
   array = [];
   resultado: any;
   pollsUser: any [] = [];
+  loading: any;
   
 
-  constructor(public navCtrl: NavController, private toastCtrl:ToastController, public navParams: NavParams, private alertCtrl: AlertController, public http:Http,  public auth: AuthSevice) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, private toastCtrl:ToastController, public navParams: NavParams, private alertCtrl: AlertController, public http:Http,  public auth: AuthSevice) {
+  this.loading = this.loadingCtrl.create({
+  content: 'Cargando tus encuestas...'});
+  this.loading.present();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PrincipalPage');
     this.usuario = this.auth.idUsuario;
-    console.log(this.usuario + "hola");
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.auth.idUsuario).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
-      console.log(this.resultado);
+      this.loading.dismiss();
     });
   }
 
   menu(encuesta_id){
-    
-
-    var myJsonString = JSON.stringify(this.pollsUser);
-    console.log("///////////////");
-    console.log(myJsonString);
-    console.log(encuesta_id);
-    console.log("///////////////");
     let alert = this.alertCtrl.create({
       title: '¿Qué deseas hacer?',
       inputs: [
@@ -74,23 +60,18 @@ export class PrincipalPage {
           text: 'Cancelar',
           role: 'cancel',
           handler: () => {
-            console.log('Cancel clicked');
           }
         },
         {
           text: 'Aceptar',
           handler: (data:string) => {
-            console.log(data);
             if (data == "0"){
-              console.log("Visualizar encuesta");
               this.navCtrl.push(SeePollPage, {encuesta_id});
             }
             else if (data == "1"){
-              console.log("Aplicar encuesta");
               this.navCtrl.push(DoPoollPage, {encuesta_id});
             }
             else if (data == "2"){
-              console.log("Ver encuesta");
               this.navCtrl.push(ResultpollsPage, {encuesta_id});
             }
             }
@@ -103,29 +84,17 @@ export class PrincipalPage {
 
   create(){
     this.usuario = this.auth.idUsuario;
-    console.log(this.usuario);
     this.http.post('https://apex.oracle.com/pls/apex/indeme/INpolls/', {
       'id': this.usuario
     }).map((response:Response)=>{
       return response.json();
-      //console.log (response.json());
-    }).subscribe(
-      ()=> {console.log("Success");
-      
-    },
-      (error)=>{
-        console.log('error'+ error);
-      }
-    )
+    })
     this.navCtrl.push(CreatePage);
 }
 
 add(){
-  console.log(this.aswer);
   if(this.Ask.length < 2){
   this.Ask.push(this.aswer);
-  console.log(this.Ask[0]);
-  console.log(this.Ask.length);
 }
 else{
   this.presentToast("No puedes agregar más.")
@@ -140,5 +109,4 @@ presentToast(message) {
   });
   toast.present();
 }
-
 }
