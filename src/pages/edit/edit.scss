@@ -23,6 +23,10 @@ page-edit {
         }
         .icon-size {
             font-size: 90px;
+            border-radius: 20px 0px 0px 0px;
         }
+    }
+    ion-card {
+        border-top: 4px solid #a80000;
     }
 }

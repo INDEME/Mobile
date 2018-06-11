@@ -28,7 +28,7 @@ export class EditPage {
     console.log('ionViewDidLoad EditPage');
     this.datoNombre = this.auth.NombreUsuario;
     this.IdentificadorUsuario = this.auth.idUsuario;
-    this.nombreUsuario = "Hola a: "+this.datoNombre;
+    this.nombreUsuario = "Hola "+this.datoNombre;
     console.log(this.IdentificadorUsuario);
   }
 

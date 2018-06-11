@@ -1,15 +1,15 @@
 <ion-content class="login-content bg-color" padding>
-    <div class="login-box card-text">
+    <div class="card-text">
         <ion-card>
             <ion-row>
                 <ion-col>
-                    <ion-list>
+                    <ion-list padding>
 
-                        <strong>Tamaño de la población:</strong>
+                        <h2>Tamaño de la población:</h2>
                         <ion-item>
                             <ion-input type="number" id="poblacion" name="poblacion" [(ngModel)]="poblacionValor" required></ion-input>
                         </ion-item>
-                        <strong>Nivel de confianza:</strong>
+                        <h2 padding>Nivel de confianza:</h2>
                         <ion-item>
                             <ion-label> -- </ion-label>
                             <ion-select [(ngModel)]="confianza">
@@ -20,7 +20,7 @@
                                 <ion-option value="2.58">99%</ion-option>
                             </ion-select>
                         </ion-item>
-                        <strong>Margen de error:</strong>
+                        <h2>Margen de error:</h2>
                         <ion-item>
                             <ion-input type="number" name="error" [(ngModel)]="errorValor" required></ion-input>
                         </ion-item>
@@ -31,12 +31,15 @@
             </ion-row>
 
             <ion-row>
-                <ion-col class="signup-col">
-                    <button round ion-button (click)="calcularMuestra()" full>Calcular</button>
+                <ion-col class="signup-col" padding>
+                    <button round small ion-button (click)="calcularMuestra()">Calcular</button>
+
+                    <h2 class="res-text" padding>Resultado:</h2>
+
+                    <ion-item class="card-text" padding>
+                        <strong>{{totalResultado}}</strong>
+                    </ion-item>
                 </ion-col>
-                <ion-item>
-                    <ion-label>{{totalResultado}}</ion-label>
-                </ion-item>
             </ion-row>
         </ion-card>
     </div>

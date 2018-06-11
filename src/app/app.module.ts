@@ -51,17 +51,17 @@ import { AuthSevice } from '../services/auth/auth';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp, {
-      tabsPlacement: 'top',
+      tabsPlacement: 'bottom',
         platforms: {
           android: {
-            tabsPlacement: 'top'
+            tabsPlacement: 'bottom'
           },
           ios: {
-            tabsPlacement: 'top'
+            tabsPlacement: 'bottom'
           },
           windows:
           {
-            tabsPlacement: 'top'
+            tabsPlacement: 'bottom'
           }
         }
       })

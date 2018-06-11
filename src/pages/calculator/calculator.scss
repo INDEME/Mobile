@@ -5,4 +5,13 @@ page-calculator {
     .bg-color {
         background-color: #DDDD;
     }
+    ion-card {
+        border-top: 5px solid #a80000;
+        border-bottom: 2px solid #a80000;
+        border-left: 2px solid #a80000;
+        border-right: 2px solid #a80000;
+    }
+    .res-text {
+        margin-top: 5px;
+    }
 }

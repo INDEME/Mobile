@@ -6,12 +6,14 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content class="login-content background" padding>
+<ion-content class="login-content" padding>
+
     <div class="login-box">
+
         <form (nSubmit)="login()" #registerForm="ngForm">
             <ion-card class="card card-md">
-                <ion-card-header>
-                    Inicia Sesión
+                <ion-card-header text-center>
+                    Inicia sesión
                 </ion-card-header>
                 <ion-row>
                     <ion-col>
@@ -27,7 +29,7 @@
                 </ion-row>
                 <ion-row>
                     <ion-col class="signup-col">
-                        <button ion-button round class="submit-btn" full type="submit" (click)="login()">ACEPTAR</button>
+                        <button ion-button round small type="submit" (click)="login()">Aceptar</button>
                     </ion-col>
                 </ion-row>
             </ion-card>
@@ -35,7 +37,7 @@
         <ion-label class="signup-title"><strong>¿No tienes cuenta con nosotros?</strong></ion-label>
         <ion-row>
             <ion-col class="signup-col">
-                <button ion-button round class="submit-btn" type="submit" (click)="crearCuenta()">REGISTRATE</button>
+                <button ion-button round small type="submit" (click)="crearCuenta()">Registrate</button>
             </ion-col>
         </ion-row>
     </div>

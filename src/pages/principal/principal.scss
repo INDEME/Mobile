@@ -1,14 +1,24 @@
 page-principal {
+    ion-row {
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .bg-color {
         background-color: #DDDD;
     }
     .create-icon {
-        color: #030B26;
+        color: #a80000;
     }
     .card-md {
         width: auto;
         font-size: 1.4rem;
         background: white;
     }
-
+    ion-card {
+        border-bottom: 2px solid #a80000;
+        ;
+    }
 }
