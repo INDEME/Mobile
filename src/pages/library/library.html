@@ -1,11 +1,10 @@
 <ion-content padding>
     <ion-item>
-        <ion-label stacked>Ingrese la pregunta que esta buscando:</ion-label>
-        <ion-input type="text" [(ngModel)]="nombre"></ion-input>
-    </ion-item>
-    <ion-item>
-       <button ion-buttton class="submit-btn" full type="submit" (click)="search(nombre)" >BUSCAR</button> 
-    </ion-item>
+ <ion-input type="text" placeholder="¿Qué deseas buscar?" [(ngModel)]="nombre"></ion-input>
+  <button ion-button large clear (click)="search(nombre)" item-end>
+      <ion-icon name="search"></ion-icon>
+    </button>
+</ion-item>
     <ion-card>
         <ion-list>
             <ion-item *ngFor="let item of list">

@@ -23,11 +23,8 @@ export class LibraryPage {
     return new Promise(resolve => {
       this.consulta.getListPreguntasByName(this.nombre).then(results => {
         this.list = results;
-        this.loading.dismiss();
-        console.log(results);
         return resolve();
       }).catch(err => {  
-         console.log(err);  
         return resolve();
       });
     })
