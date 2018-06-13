@@ -20,10 +20,9 @@ export class ResultpollsPage {
   }
 
   ionViewDidLoad() {
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskResult/' + this.encuestaId).map(res => res.json()).subscribe(data => {
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/IN/askAll/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado2 = data.items;
       this.loading.dismiss();
     });
   }
-
 }
