@@ -8,8 +8,6 @@
 
 <ion-content padding>
 
-    <ion-card>
-        <ion-row>
             <ion-list padding *ngFor="let poll of resultado">
                 <div *ngIf="poll.id_encuesta == encuestaId">
                     <div class="card-title">{{poll.pregunta}}</div>
@@ -163,7 +161,6 @@
 
                 </div>
             </ion-list>
-            <button ion-button type="submit" (click)="doPoll()" round>Responder encuesta</button>
-        </ion-row>
-    </ion-card>
+            <button ion-button type="submit" (click)="doPoll()" round full>Responder encuesta</button>
+      
 </ion-content>
