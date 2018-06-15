@@ -8,6 +8,12 @@
 
 
 <ion-content>
+        <ion-item>
+                <ion-input type="text" placeholder="¿Qué pregunta deseas buscar?" [(ngModel)]="pregunta"></ion-input>
+                 <button ion-button large clear (click)="search(pregunta)" item-end>
+                     <ion-icon name="search"></ion-icon>
+                   </button>
+               </ion-item>
     
         <ion-card padding *ngFor="let poll of resultado">
             <div *ngIf="poll.id_encuesta == encuestaId">

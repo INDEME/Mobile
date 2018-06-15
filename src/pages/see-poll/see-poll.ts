@@ -1,5 +1,5 @@
 import 'rxjs/Rx';
-import { Component, IonicPage, NavController, NavParams, LoadingController, Http } from '../index.paginas';
+import { Component, IonicPage, NavController, NavParams, LoadingController, Http, ConsultaProvider } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -11,8 +11,9 @@ export class SeePollPage {
   resultado: any;
   askItems: any;
   loading: any;
+  pregunta: string;
 
-  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
+  constructor(public consulta: ConsultaProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
 this.loading = this.loadingCtrl.create({
   content: 'Cargando preguntas...'
@@ -29,6 +30,17 @@ this.loading.present();
       this.askItems = data.items;
       this.loading.dismiss();
     });
+  }
+
+  search(pregunta){
+    return new Promise(resolve => {
+      this.consulta.getListSeeAsk(this.encuestaId, this.pregunta).then(results => {
+        this.resultado = results;
+        return resolve();
+      }).catch(err => {  
+        return resolve();
+      });
+    })
   }
 
 }

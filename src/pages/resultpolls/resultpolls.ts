@@ -1,5 +1,5 @@
 import 'rxjs/Rx';
-import { Component, IonicPage, NavController, NavParams, LoadingController, Http } from '../index.paginas';
+import { Component, IonicPage, NavController, NavParams, LoadingController, Http, ConsultaProvider } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -10,8 +10,10 @@ export class ResultpollsPage {
   encuestaId: any;
   resultado2: any;
   loading: any;
+  nombre: string;
 
-  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
+
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public consulta: ConsultaProvider, public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
     this.loading = this.loadingCtrl.create({
       content: 'Cargando resultados...'
@@ -24,5 +26,16 @@ export class ResultpollsPage {
       this.resultado2 = data.items;
       this.loading.dismiss();
     });
+  }
+
+  search(nombre){
+    return new Promise(resolve => {
+      this.consulta.getListResult(this.encuestaId, this.nombre).then(results => {
+        this.resultado2 = results;
+        return resolve();
+      }).catch(err => {  
+        return resolve();
+      });
+    })
   }
 }
